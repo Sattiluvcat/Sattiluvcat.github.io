@@ -6,8 +6,15 @@
     <description>Recent content in Tags on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.136.5</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 Oct 2024 23:32:08 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 25 Oct 2024 11:12:43 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis</title>
+      <link>https://Sattiluvcat.github.io/en/tags/redis/</link>
+      <pubDate>Fri, 25 Oct 2024 11:12:43 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/tags/redis/</guid>
+      <description></description>
+    </item>
     <item>
       <title>MySql</title>
       <link>https://Sattiluvcat.github.io/en/tags/mysql/</link>

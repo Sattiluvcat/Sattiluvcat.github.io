@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Java💻 on Satti&#39;s Blog</title>
-    <link>https://Sattiluvcat.github.io/en/posts/java/</link>
-    <description>Recent content in Java💻 on Satti&#39;s Blog</description>
+    <title>Redis on Satti&#39;s Blog</title>
+    <link>https://Sattiluvcat.github.io/en/tags/redis/</link>
+    <description>Recent content in Redis on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.136.5</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 25 Oct 2024 11:12:43 +0800</lastBuildDate>
-    <atom:link href="https://Sattiluvcat.github.io/en/posts/java/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://Sattiluvcat.github.io/en/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis_base</title>
       <link>https://Sattiluvcat.github.io/en/posts/java/redis%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/</link>
@@ -28,13 +28,6 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</description>
-    </item>
-    <item>
-      <title>MySql基础</title>
-      <link>https://Sattiluvcat.github.io/en/posts/java/mysql_base/</link>
-      <pubDate>Tue, 22 Oct 2024 23:32:08 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/posts/java/mysql_base/</guid>
-      <description>关于MySql的基础知识笔记</description>
     </item>
   </channel>
 </rss>
