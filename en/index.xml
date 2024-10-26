@@ -6,8 +6,15 @@
     <description>Recent content on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.136.5</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 26 Oct 2024 14:57:52 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 26 Oct 2024 18:51:24 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构</title>
+      <link>https://Sattiluvcat.github.io/en/posts/else/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Sat, 26 Oct 2024 18:51:24 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/else/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description>数据结构梳理</description>
+    </item>
     <item>
       <title>MySql</title>
       <link>https://Sattiluvcat.github.io/en/posts/java/mysql/</link>
@@ -88,11 +95,11 @@
       <description>lulu</description>
     </item>
     <item>
-      <title>关于 Satti</title>
+      <title>关于我</title>
       <link>https://Sattiluvcat.github.io/en/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://Sattiluvcat.github.io/en/about/</guid>
-      <description>about</description>
+      <description>——这是对未知进行探索的日志. A peaceful place for Satti.</description>
     </item>
   </channel>
 </rss>
