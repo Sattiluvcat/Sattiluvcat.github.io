@@ -6,8 +6,15 @@
     <description>Recent content in Java💻 on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.136.5</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 25 Oct 2024 11:12:43 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 26 Oct 2024 14:57:52 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/posts/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySql</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/mysql/</link>
+      <pubDate>Sat, 26 Oct 2024 14:57:52 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/mysql/</guid>
+      <description>MySql底层知识点</description>
+    </item>
     <item>
       <title>Redis_base</title>
       <link>https://Sattiluvcat.github.io/en/posts/java/redis%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/</link>
