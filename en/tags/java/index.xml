@@ -4,10 +4,17 @@
     <title>Java on Satti&#39;s Blog</title>
     <link>https://Sattiluvcat.github.io/en/tags/java/</link>
     <description>Recent content in Java on Satti&#39;s Blog</description>
-    <generator>Hugo -- 0.137.0</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 26 Oct 2024 18:51:24 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 Nov 2024 00:34:21 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>外卖Proj</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/%E5%A4%96%E5%8D%96proj/</link>
+      <pubDate>Wed, 06 Nov 2024 10:59:21 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/%E5%A4%96%E5%8D%96proj/</guid>
+      <description>烂大街外卖项目的一些知识点与遇到的坑</description>
+    </item>
     <item>
       <title>数据结构</title>
       <link>https://Sattiluvcat.github.io/en/posts/notes/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
