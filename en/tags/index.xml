@@ -6,8 +6,22 @@
     <description>Recent content in Tags on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 Nov 2024 22:54:31 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2024 23:40:31 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java</title>
+      <link>https://Sattiluvcat.github.io/en/tags/java/</link>
+      <pubDate>Sat, 16 Nov 2024 12:16:45 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redis</title>
+      <link>https://Sattiluvcat.github.io/en/tags/redis/</link>
+      <pubDate>Sat, 16 Nov 2024 12:16:45 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/tags/redis/</guid>
+      <description></description>
+    </item>
     <item>
       <title>电影</title>
       <link>https://Sattiluvcat.github.io/en/tags/%E7%94%B5%E5%BD%B1/</link>
@@ -30,13 +44,6 @@
       <description></description>
     </item>
     <item>
-      <title>Java</title>
-      <link>https://Sattiluvcat.github.io/en/tags/java/</link>
-      <pubDate>Wed, 06 Nov 2024 10:59:21 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/tags/java/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>JavaWeb</title>
       <link>https://Sattiluvcat.github.io/en/tags/javaweb/</link>
       <pubDate>Wed, 06 Nov 2024 10:59:21 +0800</pubDate>
@@ -55,13 +62,6 @@
       <link>https://Sattiluvcat.github.io/en/tags/mysql/</link>
       <pubDate>Sat, 26 Oct 2024 14:57:52 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/tags/mysql/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Redis</title>
-      <link>https://Sattiluvcat.github.io/en/tags/redis/</link>
-      <pubDate>Fri, 25 Oct 2024 11:12:43 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/tags/redis/</guid>
       <description></description>
     </item>
   </channel>

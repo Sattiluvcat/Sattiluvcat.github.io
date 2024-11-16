@@ -6,8 +6,15 @@
     <description>Recent content in Redis on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 25 Oct 2024 11:12:43 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Nov 2024 12:16:45 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>点评Proj</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/%E7%82%B9%E8%AF%84proj/</link>
+      <pubDate>Sat, 16 Nov 2024 12:16:45 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/%E7%82%B9%E8%AF%84proj/</guid>
+      <description>又是来自黑马的烂大街项目——小小点评，也是Redis基础的一个延伸</description>
+    </item>
     <item>
       <title>Redis_base</title>
       <link>https://Sattiluvcat.github.io/en/posts/java/redis%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/</link>
