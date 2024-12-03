@@ -6,7 +6,7 @@
     <description>Recent content on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.139.3</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Nov 2024 12:53:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2024 16:03:47 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>个人电影Top5</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 13 Nov 2024 21:42:20 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/posts/hobbies/%E7%94%B5%E5%BD%B1top5/</guid>
       <description>最符合自己庸俗品味的电影Top5与非常浅显的短评 突出的就是just for myself</description>
+    </item>
+    <item>
+      <title>Cs186</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/cs186/</link>
+      <pubDate>Mon, 02 Dec 2024 16:03:47 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/cs186/</guid>
+      <description>UBC CS186课程的一些避坑</description>
     </item>
     <item>
       <title>点评Proj</title>
