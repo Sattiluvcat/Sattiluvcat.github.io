@@ -4,15 +4,43 @@
     <title>Tags on Satti&#39;s Blog</title>
     <link>https://Sattiluvcat.github.io/en/tags/</link>
     <description>Recent content in Tags on Satti&#39;s Blog</description>
-    <generator>Hugo -- 0.139.4</generator>
+    <generator>Hugo -- 0.140.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Dec 2024 00:30:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2024 23:57:45 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java</title>
       <link>https://Sattiluvcat.github.io/en/tags/java/</link>
-      <pubDate>Sun, 08 Dec 2024 17:00:48 +0800</pubDate>
+      <pubDate>Mon, 16 Dec 2024 17:10:45 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MongoDB</title>
+      <link>https://Sattiluvcat.github.io/en/tags/mongodb/</link>
+      <pubDate>Mon, 16 Dec 2024 17:10:45 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://Sattiluvcat.github.io/en/tags/python/</link>
+      <pubDate>Mon, 16 Dec 2024 17:10:45 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redis</title>
+      <link>https://Sattiluvcat.github.io/en/tags/redis/</link>
+      <pubDate>Mon, 16 Dec 2024 17:10:45 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/tags/redis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RRT</title>
+      <link>https://Sattiluvcat.github.io/en/tags/rrt/</link>
+      <pubDate>Mon, 16 Dec 2024 14:38:32 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/tags/rrt/</guid>
       <description></description>
     </item>
     <item>
@@ -20,13 +48,6 @@
       <link>https://Sattiluvcat.github.io/en/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Mon, 02 Dec 2024 16:03:47 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Redis</title>
-      <link>https://Sattiluvcat.github.io/en/tags/redis/</link>
-      <pubDate>Sat, 16 Nov 2024 12:16:45 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/tags/redis/</guid>
       <description></description>
     </item>
     <item>
@@ -41,13 +62,6 @@
       <link>https://Sattiluvcat.github.io/en/tags/408/</link>
       <pubDate>Wed, 13 Nov 2024 20:11:31 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/tags/408/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>RRT</title>
-      <link>https://Sattiluvcat.github.io/en/tags/rrt/</link>
-      <pubDate>Wed, 06 Nov 2024 12:01:24 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/tags/rrt/</guid>
       <description></description>
     </item>
     <item>

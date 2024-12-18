@@ -4,10 +4,17 @@
     <title>RRT on Satti&#39;s Blog</title>
     <link>https://Sattiluvcat.github.io/en/tags/rrt/</link>
     <description>Recent content in RRT on Satti&#39;s Blog</description>
-    <generator>Hugo -- 0.139.4</generator>
+    <generator>Hugo -- 0.140.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Nov 2024 12:53:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Dec 2024 14:38:32 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/rrt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VF-RRT</title>
+      <link>https://Sattiluvcat.github.io/en/posts/else/vf-rrt/</link>
+      <pubDate>Mon, 16 Dec 2024 14:38:32 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/else/vf-rrt/</guid>
+      <description>流场视为向量场的RRT算法</description>
+    </item>
     <item>
       <title>Bi-RRT及改良</title>
       <link>https://Sattiluvcat.github.io/en/posts/else/bi-rrt/</link>

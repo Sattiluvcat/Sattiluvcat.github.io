@@ -4,10 +4,17 @@
     <title>Redis on Satti&#39;s Blog</title>
     <link>https://Sattiluvcat.github.io/en/tags/redis/</link>
     <description>Recent content in Redis on Satti&#39;s Blog</description>
-    <generator>Hugo -- 0.139.4</generator>
+    <generator>Hugo -- 0.140.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 26 Nov 2024 13:29:45 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2024 23:57:45 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从0开始的电影之夜</title>
+      <link>https://Sattiluvcat.github.io/en/posts/hobbies/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E7%94%B5%E5%BD%B1%E4%B9%8B%E5%A4%9C/</link>
+      <pubDate>Mon, 16 Dec 2024 17:10:45 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/hobbies/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E7%94%B5%E5%BD%B1%E4%B9%8B%E5%A4%9C/</guid>
+      <description>从0开始开发一个小小的电影之夜功能——纪念豆瓣观影520部🎉 当然主要目的还是好玩</description>
+    </item>
     <item>
       <title>点评Proj</title>
       <link>https://Sattiluvcat.github.io/en/posts/java/%E7%82%B9%E8%AF%84proj/</link>

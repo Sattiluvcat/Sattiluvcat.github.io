@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Hobbies🎥 on Satti&#39;s Blog</title>
-    <link>https://Sattiluvcat.github.io/en/posts/hobbies/</link>
-    <description>Recent content in Hobbies🎥 on Satti&#39;s Blog</description>
+    <title>Python on Satti&#39;s Blog</title>
+    <link>https://Sattiluvcat.github.io/en/tags/python/</link>
+    <description>Recent content in Python on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.140.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 18 Dec 2024 23:57:45 +0800</lastBuildDate>
-    <atom:link href="https://Sattiluvcat.github.io/en/posts/hobbies/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>个人电影Top5</title>
-      <link>https://Sattiluvcat.github.io/en/posts/hobbies/%E7%94%B5%E5%BD%B1top5/</link>
-      <pubDate>Wed, 13 Nov 2024 21:42:20 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/posts/hobbies/%E7%94%B5%E5%BD%B1top5/</guid>
-      <description>最符合自己庸俗品味的电影Top5与非常浅显的短评 突出的就是just for myself</description>
-    </item>
+    <atom:link href="https://Sattiluvcat.github.io/en/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>从0开始的电影之夜</title>
       <link>https://Sattiluvcat.github.io/en/posts/hobbies/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E7%94%B5%E5%BD%B1%E4%B9%8B%E5%A4%9C/</link>
