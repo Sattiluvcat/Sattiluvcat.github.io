@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Spring on Satti&#39;s Blog</title>
+    <link>https://Sattiluvcat.github.io/en/tags/spring/</link>
+    <description>Recent content in Spring on Satti&#39;s Blog</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 08 Jan 2025 23:06:00 +0800</lastBuildDate>
+    <atom:link href="https://Sattiluvcat.github.io/en/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>八股  Spring</title>
+      <link>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/</link>
+      <pubDate>Wed, 08 Jan 2025 21:11:00 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/</guid>
+      <description>梳理一些关于Spring的知识内容</description>
+    </item>
+  </channel>
+</rss>

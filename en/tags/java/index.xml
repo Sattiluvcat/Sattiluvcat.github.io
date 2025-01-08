@@ -6,8 +6,15 @@
     <description>Recent content in Java on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 30 Dec 2024 00:04:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jan 2025 23:06:00 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>八股  Spring</title>
+      <link>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/</link>
+      <pubDate>Wed, 08 Jan 2025 21:11:00 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/</guid>
+      <description>梳理一些关于Spring的知识内容</description>
+    </item>
     <item>
       <title>从0开始的电影之夜</title>
       <link>https://Sattiluvcat.github.io/en/posts/hobbies/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E7%94%B5%E5%BD%B1%E4%B9%8B%E5%A4%9C/</link>
@@ -16,11 +23,11 @@
       <description>从0开始开发一个小小的电影之夜功能——纪念豆瓣观影520部🎉，当然主要目的还是好玩，数据爬取与项目开源于GitHub：https://github.com/Sattiluvcat/DoubanHaveWatched/ 与 MovieNight</description>
     </item>
     <item>
-      <title>八股</title>
-      <link>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1/</link>
+      <title>八股——数据库</title>
+      <link>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sun, 08 Dec 2024 17:00:48 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1/</guid>
-      <description>梳理一些方便查看的主要知识内容</description>
+      <guid>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>梳理一些方便查看的主要知识内容，主要涉及数据库中的内容</description>
     </item>
     <item>
       <title>CS186</title>
@@ -55,58 +62,7 @@
       <link>https://Sattiluvcat.github.io/en/posts/java/redis%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 25 Oct 2024 11:12:43 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/posts/java/redis%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AC%94%E8%AE%B0/</guid>
-      <description>&lt;p&gt; &lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-&lt;h3 id=&#34;nosql&#34;&gt;NoSql&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;非关系型数据库 No Structured Relational&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;特点：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;表型 JSON型 图型==非结构化
-&lt;ul&gt;
-&lt;li&gt;Redis为键值类型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;JSON表==数据无关联&lt;/li&gt;
-&lt;li&gt;查询方式==非SQL（语法不统一）&lt;/li&gt;
-&lt;li&gt;事务ACID无法全部满足==BASE&lt;/li&gt;
-&lt;li&gt;存储==内存&lt;/li&gt;
-&lt;li&gt;使用场景：
-&lt;ul&gt;
-&lt;li&gt;数据结构不固定&lt;/li&gt;
-&lt;li&gt;对一致性 安全性要求不高&lt;/li&gt;
-&lt;li&gt;性能要求&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;redis&#34;&gt;Redis&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;特征：
-&lt;ul&gt;
-&lt;li&gt;键值型 key-&lt;!-- raw HTML omitted --&gt;value&lt;!-- raw HTML omitted --&gt; 支持多种数据结构&lt;/li&gt;
-&lt;li&gt;单线程 命令具原子性&lt;/li&gt;
-&lt;li&gt;低延迟
-&lt;ul&gt;
-&lt;li&gt;内存&lt;/li&gt;
-&lt;li&gt;IO多路复用&lt;/li&gt;
-&lt;li&gt;编码风格&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;支持数据持久化&lt;/li&gt;
-&lt;li&gt;支持主从集群 分片集群（主表&amp;amp;从表）&lt;/li&gt;
-&lt;li&gt;多语言客户端&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;redis-cli -h 192.168.211.129 -p 6379 -a 密码&lt;/code&gt;&lt;br&gt;
-启动（不安全）&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;systemctl stop redis&lt;/code&gt;关闭&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;连接虚拟机与图形化界面失败=检查防火墙&lt;/p&gt;</description>
+      <description>数据类型与基础操作</description>
     </item>
   </channel>
 </rss>
