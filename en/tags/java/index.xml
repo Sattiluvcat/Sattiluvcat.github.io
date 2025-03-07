@@ -4,19 +4,26 @@
     <title>Java on Satti&#39;s Blog</title>
     <link>https://Sattiluvcat.github.io/en/tags/java/</link>
     <description>Recent content in Java on Satti&#39;s Blog</description>
-    <generator>Hugo -- 0.144.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 24 Jan 2025 21:02:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Mar 2025 16:43:40 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>八股 Java</title>
+      <title>MySql语法注意事项</title>
+      <link>https://Sattiluvcat.github.io/en/posts/notes/sql%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+      <pubDate>Fri, 07 Mar 2025 14:37:40 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/notes/sql%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+      <description>写SQL查询时的一些注意事项与踩🕳</description>
+    </item>
+    <item>
+      <title>八股——Java</title>
       <link>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--java/</link>
       <pubDate>Sat, 11 Jan 2025 16:43:40 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--java/</guid>
       <description>Java基础-集合-并发-虚拟机（简略）知识总结，来自小林coding</description>
     </item>
     <item>
-      <title>八股  Spring</title>
+      <title>八股——Spring</title>
       <link>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/</link>
       <pubDate>Wed, 08 Jan 2025 21:11:00 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/</guid>

@@ -4,10 +4,17 @@
     <title>MySql on Satti&#39;s Blog</title>
     <link>https://Sattiluvcat.github.io/en/tags/mysql/</link>
     <description>Recent content in MySql on Satti&#39;s Blog</description>
-    <generator>Hugo -- 0.144.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 26 Oct 2024 14:57:52 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Mar 2025 14:50:40 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySql语法注意事项</title>
+      <link>https://Sattiluvcat.github.io/en/posts/notes/sql%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+      <pubDate>Fri, 07 Mar 2025 14:37:40 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/notes/sql%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+      <description>写SQL查询时的一些注意事项与踩🕳</description>
+    </item>
     <item>
       <title>MySql</title>
       <link>https://Sattiluvcat.github.io/en/posts/java/mysql/</link>

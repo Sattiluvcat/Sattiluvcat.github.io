@@ -4,15 +4,29 @@
     <title>Tags on Satti&#39;s Blog</title>
     <link>https://Sattiluvcat.github.io/en/tags/</link>
     <description>Recent content in Tags on Satti&#39;s Blog</description>
-    <generator>Hugo -- 0.144.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 28 Jan 2025 16:21:32 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Mar 2025 16:43:40 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java</title>
       <link>https://Sattiluvcat.github.io/en/tags/java/</link>
-      <pubDate>Sat, 11 Jan 2025 16:43:40 +0800</pubDate>
+      <pubDate>Fri, 07 Mar 2025 14:37:40 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MySql</title>
+      <link>https://Sattiluvcat.github.io/en/tags/mysql/</link>
+      <pubDate>Fri, 07 Mar 2025 14:37:40 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/tags/mysql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>https://Sattiluvcat.github.io/en/tags/shell/</link>
+      <pubDate>Fri, 07 Mar 2025 14:37:40 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/tags/shell/</guid>
       <description></description>
     </item>
     <item>
@@ -90,13 +104,6 @@
       <link>https://Sattiluvcat.github.io/en/tags/lc/</link>
       <pubDate>Sat, 26 Oct 2024 18:51:24 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/tags/lc/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>MySql</title>
-      <link>https://Sattiluvcat.github.io/en/tags/mysql/</link>
-      <pubDate>Sat, 26 Oct 2024 14:57:52 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/tags/mysql/</guid>
       <description></description>
     </item>
   </channel>
