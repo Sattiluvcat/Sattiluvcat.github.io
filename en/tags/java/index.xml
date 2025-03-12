@@ -6,8 +6,15 @@
     <description>Recent content in Java on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 01 Mar 2025 16:43:40 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Mar 2025 23:12:48 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>String族的常用方法</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/string%E6%97%8F%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 08 Mar 2025 13:33:50 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/string%E6%97%8F%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+      <description>针对String-StringBuilder-StringBuffer的常用方法集锦，可能还有一些集合的常用方法</description>
+    </item>
     <item>
       <title>MySql语法注意事项</title>
       <link>https://Sattiluvcat.github.io/en/posts/notes/sql%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
