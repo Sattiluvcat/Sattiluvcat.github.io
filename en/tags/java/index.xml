@@ -6,7 +6,7 @@
     <description>Recent content in Java on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 17 Mar 2025 22:01:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Mar 2025 18:38:50 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>微服务</title>
@@ -16,11 +16,11 @@
       <description>ElasticSearch、Kafka、Sentinel组件的原理、部署与简单使用，基于大麦项目</description>
     </item>
     <item>
-      <title>String族的常用方法</title>
+      <title>String与List族的常用方法</title>
       <link>https://Sattiluvcat.github.io/en/posts/java/string%E6%97%8F%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sat, 08 Mar 2025 13:33:50 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/posts/java/string%E6%97%8F%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
-      <description>针对String-StringBuilder-StringBuffer的常用方法集锦，可能还有一些集合的常用方法</description>
+      <description>针对String-StringBuilder-StringBuffer的常用方法集锦，还有一些List与Map的常用方法</description>
     </item>
     <item>
       <title>MySql语法注意事项</title>
