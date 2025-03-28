@@ -6,7 +6,7 @@
     <description>Recent content on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 22 Mar 2025 18:58:40 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Mar 2025 19:34:27 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>个人电影Top5</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 13 Nov 2024 21:42:20 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/posts/hobbies/%E7%94%B5%E5%BD%B1top5/</guid>
       <description>最符合自己庸俗品味的电影Top5与非常浅显的短评 突出的就是just for myself</description>
+    </item>
+    <item>
+      <title>八股--数据结构</title>
+      <link>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Fri, 28 Mar 2025 13:59:27 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <description>数据结构、算法的知识性内容</description>
     </item>
     <item>
       <title>微服务</title>
