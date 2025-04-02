@@ -9,7 +9,7 @@
     <lastBuildDate>Mon, 31 Mar 2025 23:14:06 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/posts/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>计算机网络  进化版</title>
+      <title>计算机网络--进化版</title>
       <link>https://Sattiluvcat.github.io/en/posts/notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C--%E8%BF%9B%E5%8C%96%E7%89%88/</link>
       <pubDate>Mon, 31 Mar 2025 15:37:06 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/posts/notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C--%E8%BF%9B%E5%8C%96%E7%89%88/</guid>
@@ -23,32 +23,11 @@
       <description>数据结构、算法的知识性内容</description>
     </item>
     <item>
-      <title>MySql语法注意事项</title>
-      <link>https://Sattiluvcat.github.io/en/posts/notes/sql%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
-      <pubDate>Fri, 07 Mar 2025 14:37:40 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/posts/notes/sql%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
-      <description>写SQL查询时的一些注意事项与踩🕳</description>
-    </item>
-    <item>
       <title>shell简单使用</title>
       <link>https://Sattiluvcat.github.io/en/posts/notes/shell%E4%BD%BF%E7%94%A8%E5%B0%8Ftrick/</link>
       <pubDate>Fri, 07 Mar 2025 14:37:40 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/posts/notes/shell%E4%BD%BF%E7%94%A8%E5%B0%8Ftrick/</guid>
       <description>从0开始学一些简单的shell语法</description>
-    </item>
-    <item>
-      <title>八股——Java</title>
-      <link>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--java/</link>
-      <pubDate>Sat, 11 Jan 2025 16:43:40 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--java/</guid>
-      <description>Java基础-集合-并发-虚拟机（简略）知识总结，来自小林coding</description>
-    </item>
-    <item>
-      <title>八股——Spring</title>
-      <link>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/</link>
-      <pubDate>Wed, 08 Jan 2025 21:11:00 +0800</pubDate>
-      <guid>https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/</guid>
-      <description>梳理一些关于Spring的知识内容</description>
     </item>
     <item>
       <title>八股——数据库</title>

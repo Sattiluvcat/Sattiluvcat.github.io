@@ -1,41 +1,975 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><head><script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","自己的G-MEASUREMENT_ID")</script></head><title>八股——Spring | Satti's Blog</title>
-<meta name=keywords content="Java,Spring"><meta name=description content="梳理一些关于Spring的知识内容"><meta name=author content="Satti"><link rel=canonical href=https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/><link crossorigin=anonymous href=/assets/css/stylesheet.c5df81d78a700d63222bf88c998222af7e6085cc41585cba2eff58e49fd49e25.css integrity="sha256-xd+B14pwDWMiK/iMmYIir35ghcxBWFy6Lv9Y5J/UniU=" rel="preload stylesheet" as=style><link rel=icon type=image/png href=/favicon-48x48.png sizes=48x48><link rel=icon type=image/svg+xml href=/favicon.svg><link rel="shortcut icon" href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><meta name=apple-mobile-web-app-title content="MyWebSite"><link rel=manifest href=/site.webmanifest><link rel=alternate hreflang=en href=https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel=stylesheet><script type=text/javascript async src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">MathJax.Hub.Config({tex2jax:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["[[","]]"]],processEscapes:!0,processEnvironments:!0,skipTags:["script","noscript","style","textarea","pre"],TeX:{equationNumbers:{autoNumber:"AMS"},extensions:["AMSmath.js","AMSsymbols.js"]}}}),MathJax.Hub.Queue(function(){var e,t=MathJax.Hub.getAllJax();for(e=0;e<t.length;e+=1)t[e].SourceElement().parentNode.className+=" has-jax"})</script><style>code.has-jax{font:inherit;font-size:100%;background:inherit;border:inherit;color:#515151}</style><script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","自己的G-MEASUREMENT_ID")</script><meta property="og:title" content="八股——Spring"><meta property="og:description" content="梳理一些关于Spring的知识内容"><meta property="og:type" content="article"><meta property="og:url" content="https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-01-08T21:11:00+08:00"><meta property="article:modified_time" content="2025-01-24T21:02:00+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="八股——Spring"><meta name=twitter:description content="梳理一些关于Spring的知识内容"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://Sattiluvcat.github.io/en/posts/"},{"@type":"ListItem","position":2,"name":"Notes📓","item":"https://Sattiluvcat.github.io/en/posts/notes/"},{"@type":"ListItem","position":3,"name":"八股——Spring","item":"https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"八股——Spring","name":"八股——Spring","description":"梳理一些关于Spring的知识内容","keywords":["Java","Spring"],"articleBody":" Spring 概述 Spring框架核心特性： IOC（控制反转 Inversion of Control）容器：实现了对象的创建和对象间的依赖关系管理 AOP（面向切面编程 Aspect-Oriented Programming）：允许开发者定义横切关注点，独立于业务逻辑代码 事务管理：提供了一致的事务管理接口，支持声明式和编程式事务 声明式：注解 \u0026 编程式：自行实现代码 MVC框架：基于Servlet API构建的Web框架，采用模型-视图-控制器（MVC）架构 支持URL到页面控制器的映射与多种视图技术 IOC \u0026 AOP IOC与AOP简述： 区别： IOC：一种创建和获取对象的技术思想，可以通过依赖注入（DI）实现。不需new对象，而是由IOC容器来实例化对象，可降低对象间的耦合度 AOP：能够将那些与业务无关，却为业务模块所共同调用的逻辑封装起来，以减少系统重复代码，降低模块间的耦合度 Spring AOP基于动态代理，若需代理的对象实现了某接口，则使用JDK proxy创建代理对象；若没实现接口（不能用proxy），则用Cglib生成一个被代理对象的子类作为代理 IOC 和 AOP 结合使用，可以更好地实现代码的模块化和分层管理 eg. IOC 容器管理对象的依赖关系，AOP 将横切关注点统一切入到需要的业务逻辑中 eg. IOC 容器管理 Service 层和 DAO 层（Data Access Object）的依赖关系，AOP 在 Service 层实现事务管理、日志记录等横切功能 AOP详述： 背景：在 OOP（面向对象编程） 中最小的单元就是“Class 对象”，AOP中最小的单元是“切面”（一个“切面”可以包含很多种类型和对象，对它们进行模块化管理） AOP中功能分为核心业务 \u0026 周边功能（eg. 日志 事务 权限） 作用：将与业务无关，却为业务模块所共同调用的逻辑封装，减少系统的重复代码，降低模块耦合度，利于未来的可拓展性与可维护性 AOP中的一些概念： Spring AOP基于JDK动态代理 / Cglib实现，均属于运行的方式，不通过编译–\u003eSpring通过java代码实现 IOC 通过什么机制实现？ 反射：利用Java的反射机制动态地加载类、创建对象实例、调用对象方法 依赖注入：（核心）容器负责管理（应用程序）组件间的依赖关系—\u003e通过配置文件或注解描述依赖关系 设计模式—工厂模式：容器通常采用工厂模式来管理对象的创建与生命周期 容器：（实现IOC的核心）通常用BeanFactory（基本）或ApplicationContext（企业级）管理Bean。 AOP 通过什么机制实现（原理）？ 动态代理技术—\u003e运行时动态生成代理对象，而非编译时（允许在运行时指定要代理的接口和行为，不修改源码而增强功能） 基于JDK的动态代理——java.lang.reflect.Proxy类与java.lang.reflect.InvocationHandler接口实现。需要代理类实现接口 基于接口的代理 基于CGLIB的动态代理——被代理的类没有实现接口时，使用CGLIB库生成一个被代理类的子类作为代理 基于类的代理 动态代理与静态代理的区别：静态代理由coder（或特殊工具）创建，通常只代理一个类；动态代理运用反射机制动态生成，代理一个接口下的多个类 代理是一种常用的设计模式，如在创建一个类对象前后添加业务逻辑，这个过程在代理类中实现（调用代理类） 怎么理解SpringIOC？ Inversion Of Control，即控制反转，一种设计思想。 传统对象创建：new ，依赖关系（如Student的Score，需要手动指定依赖） IOC：根据配置加载并实例化Bean，保存到IOC容器中—\u003eApplicationContext.getBean(Student.class); 控制：对象的创建、初始化、销毁—\u003enew到Spring容器创建、setter到容器自动注入、赋值null或销毁到Spring管理生命周期 反转：反转对象的控制权（从coder到IOC容器） 依赖倒置、依赖注入、控制反转是什么？ 控制反转：反转控制权（详见上），从coder到框架控制程序执行流程 依赖注入：一个具体的编码技巧。（详见上）不通过new，而是外部创建依赖的类对象，通过构造函数，函数参数等方式注入给类使用 依赖倒置：指导框架层面的设计。高层模块不依赖低层模块，它们共同依赖同一个抽象（具体实现细节依赖对象，抽象不依赖细节） 设计一个IOC，考虑哪些问题？ Bean的生命周期管理 依赖注入功能（考虑通过反射与XML配置文件实现） Bean的作用域，如单例、原型、会话、请求等（考虑Map实现） AOP功能实现（考虑动态代理机制与切面编程实现） 异常处理，如Bean创建异常，依赖注入异常等（考虑try-catch） 配置文件加载，从不同配置文件中加载Bean的相关信息（考虑XML、注解或Java配置类实现） AOP主要想解决什么问题？ 对OOP思维的补充，非侵入性的功能增强（如日志） 具体实现：在Aspect中定义增强Advice，包含具体实现，整理切入点（粒度是方法），最后织入到对象的方法中 AOP实现有哪些注解？ @Aspect 定义切面，标注在切面类上 @Pointcut 定义切点，标注在方法上，指定连接点 @Before 方法执行前执行通知，通用的是@Advice 什么是反射及其使用场景 反射特性： 运行时可访问类信息—\u003e可获取类的完整结构信息，包括类名、包名、父类等 动态对象创建—\u003e 可以使用反射API动态地创建对象实例，即使在编译时不知道具体的类名。通过Class 或 Constructor 对象的 newInstance() 方法实现 动态方法调用—\u003e 运行时可以动态地调用对象的方法，包括私有方法 访问与修改字段值—\u003e 允许程序在运行时访问和修改对象的字段值，包括私有字段 运用场景：依赖注入（如Autowired）与控制反转 + 动态代理的实现（如AOP） Bean Bean的生命周期？ Spring启动时，查找并加载需要被Spring管理的Bean并实例化 Bean实例化后将对Bean的引入和值注入到Bean的属性中 若实现BeanNameAware接口，将Bean的Id传给setBeanName()方法 / 若实现BeanFactoryAware接口，将BeanFactory容器实例传入 / 若实现ApplicationContextAware接口，将Bean上下文引用传入 / 若实现BeanPostProcessor接口，调用postProcessBeforeInitialization()方法 / … Bean准备就绪，驻留在应用上下文中，直到上下文被销毁 若实现DisposableBean接口，调用其destroy()接口方法；若Bean使用destory-method声明销毁方法，则调用该方法 Bean是否单例？ 默认单例，可设置scope为prototype实现多例 Bean生命周期在单例和非单例一样吗？ 否。Bean生命周期由IOC容器控制，Spring只管理单例Bean的完整生命周期，多例的Bean在Spring创建好后不再管理生命周期 Bean的作用域有哪些？ Singleton：（对于一个类）整个应用程序中只有一个Bean实例，在整个生命周期中共享该实例 Prototype：每次请求都创建一个新Bean Request：每个HTTP请求都创建一个新实例 Session：Session范围内只创建一个实例，仅在Spring Web中程序中有效 Application：当前ServletContext中只有一个Bean实例，仅在Spring Web中程序中有效 WebSocket：Web套接字中只存在一个Bean实例 Custom scopes：开发者自定 Spring容器中存什么？ 主要存储Bean对象。根据配置文件或注解方式创建、管理Bean对象 在Bean加载/销毁前后，怎么实现某些逻辑呢？ 使用Spring的生命周期回调接口或注解： XML配置中指定init- method和destroy- method属性，后在Bean类中实现 Bean类实现InitializingBean和DisposableBean接口，并分别实现afterPropertiesSet与destroy方法 Bean类中定义带@PostConstruct和@PreDestory注解的方法 @Bean注解的init- method和destroy- method属性 Bean注入和XML注入效果相同，底层如何？ XML注入：Bean定义解析（读取标签获取Bean定义信息） —\u003e 注册Bean（如注册到BeanDefinitionRegistry） —\u003e 实例化和依赖注入（通过反射创建Bean实例，后根据Bean定义中的配置，通过setter、构造函数注入需要的依赖Bean） 注解注入：类路径扫描（@Component、@Service、@Repository、@Controller注解的类） —\u003e 注册Bean定义 —\u003e 依赖注入（检查字段上是否有@Autowired、@Inject、@Resource注解，若有则根据注解注入） 底层相似性：BeanDefinition（最终都会生成BeanDefinition对象） + 后处理器（如AutowiredAnnotationBeanPostProcessor处理Autowired注解的依赖注入 \u0026 XML也有） + 依赖查找（通过BeanFactory查找和注入依赖 三级缓存 Spring 如何解决循环依赖？ 循环依赖的三种情况：\n构造方法进行依赖注入时产生，如：（无法解决，因为发生在Bean实例化阶段，未创建早期对象，无法放入三级缓存） @Component public class BeanA { private BeanB beanB; @Autowired public BeanA(BeanB beanB) { this.beanB = beanB; } } @Component public class BeanB { private BeanA beanA; @Autowired public BeanB(BeanA beanA) { this.beanA = beanA; } } setter方法进行依赖注入时产生 \u0026 多例（原型）模式（作用域Scope指定为Prototype） 多例（原型）：（如并发场景）在原型作用域下，每次请求都创建一个新实例，一般在请求结束后销毁 不会导致初始化失败，但每次请求都会创建很多实例—\u003e性能问题 @Component @Scope(\"prototype\") public class BeanA { private BeanB beanB; @Autowired public void setBeanB(BeanB beanB) { this.beanB = beanB; } } setter方法进行依赖注入时产生 \u0026 单例模式（被解决） 解决方法：三级缓存—\u003eSpring创建Bean时，通过三级缓存缓存正在创建的Bean与创建完成的Bean实例。步骤：\n尝试创建Bean A的实例，将A的工厂对象放入三级缓存 赋值时如果发现循环依赖，将当前Bean A对象提前暴露给后续需要依赖的Bean B Bean B在三级缓存查到A，半成品A放入二级缓存（存储早期暴露的对象，已实例化未初始化） 初始化Bean：将 Bean B 进行初始化并放入一级缓存，清空其二三级缓存 注入依赖：继续对Bean A进行依赖注入，发现循环依赖时从三级缓存中获取工厂对象 整过程例：Spring先创建A的实例，并将A的工厂对象放入三级缓存。当创建B时，B会尝试从缓存中获取A。由于A还未完全创建好，B会从三级缓存中获取A的工厂对象，并通过工厂对象获取A的早期引用。这个早期引用是A的半成品（并放入二级缓存中），但已足够B使用。随后，B完成创建（并清空 其 二三级缓存，且二级空）并返回给A，A继续其初始化过程，最后清空 其 二三级缓存，且三级空 三级缓存的数据结构是？ Map 一级缓存（singletonObjects）：存放完全初始化的Bean，可直接使用 二级缓存（earlySingletonObjects）：存放属性未完全注入的半成品Bean 三级缓存（singletonFactories）：存放Bean的工厂对象，用于生成Bean的早期引用 Spring框架用到哪些设计模式？（以下省略“模式”二字） 工厂设计模式：创建Bean对象 代理设计：AOP功能的实现 单例设计：Bean默认为单例 模版方法：以Template结尾的对数据库操作的类（eg.MongoTemplate） 包装器设计： 观察者：Spring的事件驱动模型 适配器：AOP的增强或Advice、MVC用到适配器模式以适配Controller MVC 介绍 一种软件设计规范，业务逻辑、数据、界面显示分离的方法组织代码 Model：代表一个存取数据的对象或 JAVA POJO（Plain Old Java Object，简单java对象）。它也可以带有逻辑，主要用于承载数据，并对用户提交请求进行计算的模块。模型分为两类，一类称为数据承载Bean，一类称为业务处理Bean。所谓数据承载 Bean是指实体类（如：User类），专门为用户承载业务数据的；而业务处理 Bean 则是指Service 或 Dao 对象， 专门用于处理用户提交请求的 View：用户直接交互的使用界面 Controller：将用户请求转发到相应的model，根据model的计算结果向用户提供响应，分离视图与模型 基本流程：用户从View页面提出请求，服务端Controller接收请求后解析，找到对应Model，Model处理后结果交给Controller（承上启下），根据结果找到要发回的响应View页面，渲染后发回客户端 具体流程？详见 HandlerMapping和HandlerAdapter mapping：将请求映射到Controller。BeanNameUrlHandlerMapping等可实现。根据URL、请求参数等规则确定对应的处理器 adapter：调用Controller处理请求。根据Controller类型选择合适方法调用。根据Controller接口类型，选择对应的HandlerAdapter调用它 事务 通过代理对象\n事务什么情况下失效？@Transactional 开启事务情况 未捕获异常 非受检异常：RuntimeException或其子类 事务传播属性设置不当：事务嵌套且配置不正确，注意方法内调用具有该注解的方法 多数据源的事务管理：多数据源，事务管理配置不当/存在多个事务注解 跨方法调用事务问题：如果一个事务方法内部调用另一个方法，而这个被调用的方法没有 @Transactional 注解，此时外层事务可能失效 事务在非公开方法中失效：注解标注在非public方法上 使用this调用Spring事务是否生效？ 否。Spring事务通过代理对象控制，this 调用会绕过代理机制，不会应用事务设置 其它 Spring拓展点？ BeanFactoryPostProcessor：实例化Bean前修改Bean定义 BeanPostProcessor：Bean实例化、配置与初始化之后进行额外处理 Spring MVC中的HandlerInterceptor：拦截处理请求，在请求前、中、后执行特定逻辑 Spring MVC中的ControllerAdvice：全局处理控制器异常、数据绑定与数据校验 自定义注解：权限控制 日志记录等功能 ","wordCount":"5870","inLanguage":"en","datePublished":"2025-01-08T21:11:00+08:00","dateModified":"2025-01-24T21:02:00+08:00","author":[{"@type":"Person","name":"Satti"}],"mainEntityOfPage":{"@type":"WebPage","@id":"https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/"},"publisher":{"@type":"Organization","name":"Satti's Blog","logo":{"@type":"ImageObject","url":"https://Sattiluvcat.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://Sattiluvcat.github.io/en/ accesskey=h title="Satti's Blog (Alt + H)"><img src=https://Sattiluvcat.github.io/img/label1.jpg alt aria-label=logo height=35>Satti's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://Sattiluvcat.github.io/en/search/ title="🔍搜索 (Alt + /)" accesskey=/><span>🔍搜索</span></a></li><li><a href=https://Sattiluvcat.github.io/en/ title=🏠主页><span>🏠主页</span></a></li><li><a href=https://Sattiluvcat.github.io/en/tags title=📑标签><span>📑标签</span></a></li><li><a href=https://Sattiluvcat.github.io/en/lulu/ title=😽Lulu><span>😽Lulu</span></a></li><li><a href=https://Sattiluvcat.github.io/en/archives/ title=📅时间轴><span>📅时间轴</span></a></li><li><a href=https://Sattiluvcat.github.io/en/about/ title=😎关于><span>😎关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://Sattiluvcat.github.io/en/>Home</a>&nbsp;»&nbsp;<a href=https://Sattiluvcat.github.io/en/posts/>文章</a>&nbsp;»&nbsp;<a href=https://Sattiluvcat.github.io/en/posts/notes/>Notes📓</a></div><h1 class="post-title entry-hint-parent">八股——Spring</h1><div class=post-description>梳理一些关于Spring的知识内容</div><div class=post-meta><span title='2025-01-08 21:11:00 +0800 +0800'>2025-01-08</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;<span title='Last updated 2025-01-24 21:02:00 +0800 +0800'>Last updated on 2025-01-24</span>&nbsp;·&nbsp;Satti</div></header><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#spring aria-label=Spring>Spring</a><ul><li><a href=#%e6%a6%82%e8%bf%b0 aria-label=概述>概述</a></li><li><a href=#ioc--aop aria-label="IOC & AOP">IOC & AOP</a></li><li><a href=#bean aria-label=Bean>Bean</a></li><li><a href=#%e4%b8%89%e7%ba%a7%e7%bc%93%e5%ad%98 aria-label=三级缓存>三级缓存</a></li><li><a href=#mvc aria-label=MVC>MVC</a></li><li><a href=#%e4%ba%8b%e5%8a%a1 aria-label=事务>事务</a></li><li><a href=#%e5%85%b6%e5%ae%83 aria-label=其它>其它</a></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><p> </p><p> </p><h2 id=spring>Spring<a hidden class=anchor aria-hidden=true href=#spring>#</a></h2><h3 id=概述>概述<a hidden class=anchor aria-hidden=true href=#概述>#</a></h3><ol><li>Spring框架核心特性：<ol><li>IOC（控制反转 Inversion of Control）容器：实现了对象的创建和对象间的依赖关系管理</li><li>AOP（面向切面编程 Aspect-Oriented Programming）：允许开发者定义横切关注点，独立于业务逻辑代码</li><li>事务管理：提供了一致的事务管理接口，支持声明式和编程式事务</li></ol><ul><li>声明式：注解 & 编程式：自行实现代码</li></ul><ol start=4><li>MVC框架：基于Servlet API构建的Web框架，采用模型-视图-控制器（MVC）架构</li></ol><ul><li>支持URL到页面控制器的映射与多种视图技术</li></ul></li></ol><h3 id=ioc--aop>IOC & AOP<a hidden class=anchor aria-hidden=true href=#ioc--aop>#</a></h3><ol><li>IOC与AOP简述：<ol><li>区别：</li></ol><ul><li>IOC：一种创建和获取对象的技术思想，可以通过依赖注入（DI）实现。不需<code>new</code>对象，而是由IOC容器来实例化对象，可降低对象间的耦合度</li><li>AOP：能够将那些与业务无关，却为业务模块所共同调用的逻辑封装起来，以减少系统重复代码，降低模块间的耦合度<ul><li>Spring AOP基于动态代理，若需代理的对象实现了某接口，则使用JDK proxy创建代理对象；若没实现接口（不能用proxy），则用Cglib生成一个被代理对象的子类作为代理</li></ul></li></ul><ol start=2><li>IOC 和 AOP 结合使用，可以更好地实现代码的模块化和分层管理</li></ol><ul><li>eg. IOC 容器管理对象的依赖关系，AOP 将横切关注点统一切入到需要的业务逻辑中</li><li>eg. IOC 容器管理 Service 层和 DAO 层（Data Access Object）的依赖关系，AOP 在 Service 层实现事务管理、日志记录等横切功能</li></ul></li><li>AOP详述：<ul><li>背景：在 OOP（面向对象编程） 中最小的单元就是“Class 对象”，AOP中最小的单元是“切面”（一个“切面”可以包含很多种类型和对象，对它们进行模块化管理）<ul><li>AOP中功能分为核心业务 & 周边功能（eg. 日志 事务 权限）</li></ul></li><li>作用：将与业务无关，却为业务模块所共同调用的逻辑封装，减少系统的重复代码，降低模块耦合度，利于未来的可拓展性与可维护性</li><li>AOP中的一些概念：
-<img loading=lazy src=image.png alt="alt text"></li><li>Spring AOP基于JDK动态代理 / Cglib实现，均属于运行的方式，不通过编译&ndash;>Spring通过java代码实现</li></ul></li><li>IOC 通过什么机制实现？<ul><li>反射：利用Java的<strong>反射</strong>机制动态地加载<strong>类</strong>、创建对象<strong>实例</strong>、调用对象<strong>方法</strong></li><li>依赖注入：（核心）<strong>容器</strong>负责管理（应用程序）组件间的依赖关系—>通过配置文件或注解描述依赖关系</li><li>设计模式—工厂模式：容器通常采用工厂模式来管理对象的创建与生命周期</li><li>容器：（实现IOC的核心）通常用<code>BeanFactory</code>（基本）或<code>ApplicationContext</code>（企业级）管理Bean。</li></ul></li><li>AOP 通过什么机制实现（原理）？<ul><li><strong>动态代理</strong>技术—>运行时动态生成代理对象，而非编译时（允许在运行时指定要代理的接口和行为，不修改源码而增强功能）<ul><li>基于JDK的动态代理——<code>java.lang.reflect.Proxy</code>类与<code>java.lang.reflect.InvocationHandler</code>接口实现。需要代理类实现接口<ul><li>基于<strong>接口</strong>的代理</li></ul></li><li>基于CGLIB的动态代理——被代理的类没有实现接口时，使用CGLIB库生成一个被代理类的<strong>子类</strong>作为代理<ul><li>基于<strong>类</strong>的代理</li></ul></li></ul></li><li><strong>动态代理与静态代理的区别</strong>：静态代理由coder（或特殊工具）创建，通常只代理一个类；动态代理运用反射机制动态生成，代理一个接口下的多个类<ul><li>代理是一种常用的设计模式，如在创建一个类对象前后添加业务逻辑，这个过程在代理类中实现（调用代理类）</li></ul></li></ul></li><li>怎么理解SpringIOC？<ul><li>Inversion Of Control，即控制反转，一种设计思想。<ul><li>传统对象创建：<code>new</code> ，依赖关系（如Student的Score，需要手动指定依赖）</li><li>IOC：根据配置加载并实例化Bean，保存到IOC容器中—><code>ApplicationContext.getBean(Student.class);</code></li></ul></li><li>控制：对象的创建、初始化、销毁—>new到Spring容器创建、setter到容器自动注入、赋值null或销毁到Spring管理生命周期</li><li>反转：反转对象的控制权（从coder到IOC容器）</li></ul></li><li>依赖倒置、依赖注入、控制反转是什么？<ul><li>控制反转：反转控制权（详见上），从coder到框架控制程序执行流程</li><li>依赖注入：一个具体的编码技巧。（详见上）不通过new，而是外部创建依赖的类对象，通过构造函数，函数参数等方式注入给类使用</li><li>依赖倒置：指导框架层面的设计。高层模块不依赖低层模块，它们共同依赖同一个抽象（具体实现细节依赖对象，抽象不依赖细节）</li></ul></li><li>设计一个IOC，考虑哪些问题？<ul><li>Bean的生命周期管理</li><li>依赖注入功能（考虑通过反射与XML配置文件实现）</li><li>Bean的作用域，如单例、原型、会话、请求等（考虑Map实现）</li><li>AOP功能实现（考虑动态代理机制与切面编程实现）</li><li>异常处理，如Bean创建异常，依赖注入异常等（考虑try-catch）</li><li>配置文件加载，从不同配置文件中加载Bean的相关信息（考虑XML、注解或Java配置类实现）</li></ul></li><li>AOP主要想解决什么问题？<ul><li>对OOP思维的补充，非侵入性的功能增强（如日志）</li><li>具体实现：在Aspect中定义增强Advice，包含具体实现，整理切入点（粒度是方法），最后织入到对象的方法中</li></ul></li><li>AOP实现有哪些注解？<ul><li><code>@Aspect</code> 定义切面，标注在切面类上</li><li><code>@Pointcut</code> 定义切点，标注在方法上，指定连接点</li><li><code>@Before</code> 方法执行前执行通知，通用的是<code>@Advice</code></li></ul></li><li>什么是反射及其使用场景<ol><li>反射特性：<ul><li>运行时可访问类信息—>可获取类的完整结构信息，包括类名、包名、父类等</li><li>动态对象创建—> 可以使用反射API动态地<strong>创建对象实例</strong>，即使在编译时不知道具体的类名。通过<code>Class</code> 或 <code>Constructor</code> 对象的 <code>newInstance()</code> 方法实现</li><li>动态方法调用—> 运行时可以动态地调用对象的方法，包括私有方法</li><li>访问与修改字段值—> 允许程序在运行时访问和修改对象的字段值，包括私有字段</li></ul></li><li>运用场景：依赖注入（如<code>Autowired</code>）与控制反转 + 动态代理的实现（如AOP）
-<img loading=lazy src=10653d1697fc870100fce9453141601.jpg alt="alt text"></li></ol></li></ol><h3 id=bean>Bean<a hidden class=anchor aria-hidden=true href=#bean>#</a></h3><ol><li>Bean的生命周期？<ul><li>Spring启动时，查找并加载需要被Spring管理的Bean并实例化</li><li>Bean实例化后将对Bean的引入和值注入到Bean的属性中</li><li>若实现<code>BeanNameAware</code>接口，将Bean的Id传给<code>setBeanName()</code>方法 / 若实现<code>BeanFactoryAware</code>接口，将BeanFactory容器实例传入 / 若实现<code>ApplicationContextAware</code>接口，将Bean上下文引用传入 / 若实现<code>BeanPostProcessor</code>接口，调用<code>postProcessBeforeInitialization()</code>方法 / …</li><li>Bean准备就绪，驻留在应用上下文中，直到上下文被销毁</li><li>若实现<code>DisposableBean</code>接口，调用其destroy()接口方法；若Bean使用destory-method声明销毁方法，则调用该方法</li></ul></li><li>Bean是否单例？<ul><li>默认单例，可设置scope为<code>prototype</code>实现多例</li></ul></li><li>Bean生命周期在单例和非单例一样吗？<ul><li>否。Bean生命周期由IOC容器控制，Spring只管理单例Bean的完整生命周期，多例的Bean在Spring创建好后不再管理生命周期</li></ul></li><li>Bean的作用域有哪些？<ul><li>Singleton：（对于一个类）整个应用程序中<strong>只有一个Bean实例</strong>，在整个生命周期中共享该实例</li><li>Prototype：每次请求都创建一个新Bean</li><li>Request：每个HTTP请求都创建一个新实例</li><li>Session：Session范围内只创建一个实例，仅在Spring Web中程序中有效</li><li>Application：当前ServletContext中只有一个Bean实例，仅在Spring Web中程序中有效</li><li>WebSocket：Web套接字中只存在一个Bean实例</li><li>Custom scopes：开发者自定</li></ul></li><li>Spring容器中存什么？<ul><li><strong>主要</strong>存储Bean对象。根据配置文件或注解方式创建、管理Bean对象</li></ul></li><li>在Bean加载/销毁前后，怎么实现某些逻辑呢？<ul><li>使用Spring的生命周期回调接口或注解：<ol><li>XML配置中指定init- method和destroy- method属性，后在Bean类中实现</li><li>Bean类实现<code>InitializingBean</code>和<code>DisposableBean</code>接口，并分别实现<code>afterPropertiesSet</code>与<code>destroy</code>方法</li><li>Bean类中定义带@<code>PostConstruct</code>和<code>@PreDestory</code>注解的方法</li><li><code>@Bean</code>注解的init- method和destroy- method属性</li></ol></li></ul></li><li>Bean注入和XML注入效果相同，底层如何？<ol><li>XML注入：Bean定义解析（读取<code>&lt;bean></code>标签获取Bean定义信息） —> 注册Bean（如注册到<code>BeanDefinitionRegistry</code>） —> 实例化和依赖注入（通过反射创建Bean实例，后根据Bean定义中的配置，通过setter、构造函数注入需要的依赖Bean）</li><li>注解注入：类路径扫描（<code>@Component</code>、<code>@Service</code>、<code>@Repository</code>、<code>@Controller</code>注解的类） —> 注册Bean定义 —> 依赖注入（检查字段上是否有<code>@Autowired</code>、<code>@Inject</code>、<code>@Resource</code>注解，若有则根据注解注入）</li><li>底层相似性：BeanDefinition（最终都会生成BeanDefinition对象） + 后处理器（如<code>AutowiredAnnotationBeanPostProcessor</code>处理Autowired注解的依赖注入 & XML也有） + 依赖查找（通过BeanFactory查找和注入依赖</li></ol></li></ol><h3 id=三级缓存>三级缓存<a hidden class=anchor aria-hidden=true href=#三级缓存>#</a></h3><ol><li>Spring 如何解决循环依赖？<ol><li><p>循环依赖的三种情况：</p><ul><li>构造方法进行依赖注入时产生，如：（无法解决，因为发生在Bean实例化阶段，未创建早期对象，无法放入三级缓存）</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=nd>@Component</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>BeanA</span><span class=w> </span><span class=p>{</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=n>BeanB</span><span class=w> </span><span class=n>beanB</span><span class=p>;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Autowired</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=nf>BeanA</span><span class=p>(</span><span class=n>BeanB</span><span class=w> </span><span class=n>beanB</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>this</span><span class=p>.</span><span class=na>beanB</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>beanB</span><span class=p>;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nd>@Component</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>BeanB</span><span class=w> </span><span class=p>{</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=n>BeanA</span><span class=w> </span><span class=n>beanA</span><span class=p>;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Autowired</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=nf>BeanB</span><span class=p>(</span><span class=n>BeanA</span><span class=w> </span><span class=n>beanA</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>this</span><span class=p>.</span><span class=na>beanA</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>beanA</span><span class=p>;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
-</span></span></span></code></pre></div><ul><li>setter方法进行依赖注入时产生 & 多例（原型）模式（作用域<code>Scope</code>指定为<code>Prototype</code>）<ul><li>多例（原型）：（如并发场景）在原型作用域下，每次请求都创建一个新实例，一般在请求结束后销毁</li><li>不会导致初始化失败，但每次请求都会创建很多实例—>性能问题</li></ul></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=nd>@Component</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nd>@Scope</span><span class=p>(</span><span class=s>&#34;prototype&#34;</span><span class=p>)</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>BeanA</span><span class=w> </span><span class=p>{</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>   </span><span class=kd>private</span><span class=w> </span><span class=n>BeanB</span><span class=w> </span><span class=n>beanB</span><span class=p>;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>   </span><span class=nd>@Autowired</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>   </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>setBeanB</span><span class=p>(</span><span class=n>BeanB</span><span class=w> </span><span class=n>beanB</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>       </span><span class=k>this</span><span class=p>.</span><span class=na>beanB</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>beanB</span><span class=p>;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>   </span><span class=p>}</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
-</span></span></span></code></pre></div><ul><li>setter方法进行依赖注入时产生 & 单例模式（被解决）</li></ul></li><li><p>解决方法：<strong>三级缓存</strong>—>Spring创建Bean时，通过三级缓存缓存正在创建的Bean与创建完成的Bean实例。步骤：</p><ul><li>尝试创建Bean A的实例，将A的工厂对象放入三级缓存</li><li>赋值时如果发现循环依赖，将当前Bean A对象<strong>提前暴露</strong>给后续需要依赖的Bean B</li><li>Bean B在三级缓存查到A，半成品A放入二级缓存（存储早期暴露的对象，已实例化未初始化）</li><li>初始化Bean：将 Bean B 进行初始化并放入一级缓存，清空其二三级缓存</li><li>注入依赖：继续对Bean A进行依赖注入，发现循环依赖时从三级缓存中获取工厂对象</li><li>整过程例：Spring先创建A的实例，并将A的工厂对象放入三级缓存。当创建B时，B会尝试从缓存中获取A。由于A还未完全创建好，B会从三级缓存中获取A的工厂对象，并通过工厂对象获取A的<strong>早期引用</strong>。这个早期引用是A的半成品（并放入二级缓存中），但已足够B使用。随后，B完成创建（并清空 <strong>其</strong> 二三级缓存，且二级空）并返回给A，A<strong>继续</strong>其初始化过程，最后清空 <strong>其</strong> 二三级缓存，且三级空</li></ul></li></ol></li><li>三级缓存的数据结构是？<ul><li><strong>Map</strong></li></ul><ol><li>一级缓存（<strong>singletonObjects</strong>）：存放完全初始化的Bean，可直接使用</li><li>二级缓存（<strong>earlySingletonObjects</strong>）：存放属性未完全注入的半成品Bean</li><li>三级缓存（<strong>singletonFactories</strong>）：存放Bean的工厂对象，用于生成Bean的早期引用</li></ol></li><li>Spring框架用到哪些设计模式？（以下省略“模式”二字）<ul><li>工厂设计模式：创建Bean对象</li><li>代理设计：AOP功能的实现</li><li>单例设计：Bean默认为单例</li><li>模版方法：以Template结尾的对数据库操作的类（eg.<code>MongoTemplate</code>）</li><li>包装器设计：</li><li>观察者：Spring的事件驱动模型</li><li>适配器：AOP的增强或Advice、MVC用到适配器模式以适配Controller</li></ul></li></ol><h3 id=mvc>MVC<a hidden class=anchor aria-hidden=true href=#mvc>#</a></h3><ol><li>介绍<ol><li>一种软件设计规范，业务逻辑、数据、界面显示分离的方法组织代码</li><li>Model：代表一个存取数据的对象或 JAVA POJO（Plain Old Java Object，简单java对象）。它也可以带有逻辑，主要用于承载数据，并对用户提交请求进行计算的模块。模型分为两类，一类称为数据承载Bean，一类称为业务处理Bean。所谓数据承载 Bean是指实体类（如：User类），专门为用户承载业务数据的；而业务处理 Bean 则是指Service 或 Dao 对象， 专门用于处理用户提交请求的</li><li>View：用户直接交互的使用界面</li><li>Controller：将用户请求转发到相应的model，根据model的计算结果向用户提供响应，分离视图与模型</li><li>基本流程：用户从View页面提出请求，服务端Controller接收请求后解析，找到对应Model，Model处理后结果交给Controller（承上启下），<strong>根据结果</strong>找到要发回的<strong>响应View页面</strong>，渲染后发回客户端</li></ol></li><li>具体流程？<a href=https://Sattiluvcat.github.io/en/posts/java/%E7%82%B9%E8%AF%84proj/#JWT+Interceptor##引申>详见</a></li><li>HandlerMapping和HandlerAdapter<ol><li>mapping：将请求映射到Controller。BeanNameUrlHandlerMapping等可实现。根据URL、请求参数等规则确定对应的处理器</li><li>adapter：调用Controller处理请求。根据Controller类型选择合适方法调用。根据Controller接口类型，选择对应的HandlerAdapter调用它</li></ol></li></ol><h3 id=事务>事务<a hidden class=anchor aria-hidden=true href=#事务>#</a></h3><blockquote><p>通过代理对象</p></blockquote><ol><li>事务什么情况下失效？<code>@Transactional</code> 开启事务情况<ul><li>未捕获异常</li><li>非受检异常：<code>RuntimeException</code>或其子类</li><li>事务传播属性设置不当：事务嵌套且配置不正确，注意方法内调用具有该注解的方法</li><li>多数据源的事务管理：多数据源，事务管理配置不当/存在多个事务注解</li><li>跨方法调用事务问题：如果一个事务方法内部调用另一个方法，而这个被调用的方法没有 <code>@Transactional</code> 注解，此时外层事务可能失效</li><li>事务在非公开方法中失效：注解标注在非public方法上</li></ul></li><li>使用this调用Spring事务是否生效？<ul><li>否。Spring事务通过代理对象控制，<code>this</code> 调用会绕过代理机制，不会应用事务设置</li></ul></li></ol><h3 id=其它>其它<a hidden class=anchor aria-hidden=true href=#其它>#</a></h3><ol><li>Spring拓展点？<ol><li>BeanFactoryPostProcessor：实例化Bean前修改Bean定义</li><li>BeanPostProcessor：Bean实例化、配置与初始化之后进行额外处理</li><li>Spring MVC中的HandlerInterceptor：拦截处理请求，在请求前、中、后执行特定逻辑</li><li>Spring MVC中的ControllerAdvice：全局处理控制器异常、数据绑定与数据校验</li><li><strong>自定义注解</strong>：权限控制 日志记录等功能</li></ol></li></ol><script type=module>  
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+
+<head>
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '自己的G-MEASUREMENT_ID');
+</script>
+
+</head>
+<title>八股——Spring | Satti&#39;s Blog</title>
+<meta name="keywords" content="Java, Spring">
+<meta name="description" content="梳理一些关于Spring的知识内容">
+<meta name="author" content="Satti">
+<link rel="canonical" href="https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cb82f02284ddd598645e416cdd616f0412dae2ec2d66f0327ba10b38dec26d7e.css" integrity="sha256-y4LwIoTd1ZhkXkFs3WFvBBLa4uwtZvAye6ELON7CbX4=" rel="preload stylesheet" as="style">
+<link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="alternate" hreflang="en" href="https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=自己的G-MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '自己的G-MEASUREMENT_ID');
+</script>
+<meta property="og:title" content="八股——Spring" />
+<meta property="og:description" content="梳理一些关于Spring的知识内容" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-01-08T21:11:00+08:00" />
+<meta property="article:modified_time" content="2025-01-24T21:02:00+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="八股——Spring"/>
+<meta name="twitter:description" content="梳理一些关于Spring的知识内容"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "文章",
+      "item": "https://Sattiluvcat.github.io/en/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Notes📓",
+      "item": "https://Sattiluvcat.github.io/en/posts/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "八股——Spring",
+      "item": "https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "八股——Spring",
+  "name": "八股——Spring",
+  "description": "梳理一些关于Spring的知识内容",
+  "keywords": [
+    "Java", "Spring"
+  ],
+  "articleBody": " Spring 概述 Spring框架核心特性： IOC（控制反转 Inversion of Control）容器：实现了对象的创建和对象间的依赖关系管理 AOP（面向切面编程 Aspect-Oriented Programming）：允许开发者定义横切关注点，独立于业务逻辑代码 事务管理：提供了一致的事务管理接口，支持声明式和编程式事务 声明式：注解 \u0026 编程式：自行实现代码 MVC框架：基于Servlet API构建的Web框架，采用模型-视图-控制器（MVC）架构 支持URL到页面控制器的映射与多种视图技术 IOC \u0026 AOP IOC与AOP简述： 区别： IOC：一种创建和获取对象的技术思想，可以通过依赖注入（DI）实现。不需new对象，而是由IOC容器来实例化对象，可降低对象间的耦合度 AOP：能够将那些与业务无关，却为业务模块所共同调用的逻辑封装起来，以减少系统重复代码，降低模块间的耦合度 Spring AOP基于动态代理，若需代理的对象实现了某接口，则使用JDK proxy创建代理对象；若没实现接口（不能用proxy），则用Cglib生成一个被代理对象的子类作为代理 IOC 和 AOP 结合使用，可以更好地实现代码的模块化和分层管理 eg. IOC 容器管理对象的依赖关系，AOP 将横切关注点统一切入到需要的业务逻辑中 eg. IOC 容器管理 Service 层和 DAO 层（Data Access Object）的依赖关系，AOP 在 Service 层实现事务管理、日志记录等横切功能 AOP详述： 背景：在 OOP（面向对象编程） 中最小的单元就是“Class 对象”，AOP中最小的单元是“切面”（一个“切面”可以包含很多种类型和对象，对它们进行模块化管理） AOP中功能分为核心业务 \u0026 周边功能（eg. 日志 事务 权限） 作用：将与业务无关，却为业务模块所共同调用的逻辑封装，减少系统的重复代码，降低模块耦合度，利于未来的可拓展性与可维护性 AOP中的一些概念： Spring AOP基于JDK动态代理 / Cglib实现，均属于运行的方式，不通过编译–\u003eSpring通过java代码实现 IOC 通过什么机制实现？ 反射：利用Java的反射机制动态地加载类、创建对象实例、调用对象方法 依赖注入：（核心）容器负责管理（应用程序）组件间的依赖关系—\u003e通过配置文件或注解描述依赖关系 设计模式—工厂模式：容器通常采用工厂模式来管理对象的创建与生命周期 容器：（实现IOC的核心）通常用BeanFactory（基本）或ApplicationContext（企业级）管理Bean。 AOP 通过什么机制实现（原理）？ 动态代理技术—\u003e运行时动态生成代理对象，而非编译时（允许在运行时指定要代理的接口和行为，不修改源码而增强功能） 基于JDK的动态代理——java.lang.reflect.Proxy类与java.lang.reflect.InvocationHandler接口实现。需要代理类实现接口 基于接口的代理 基于CGLIB的动态代理——被代理的类没有实现接口时，使用CGLIB库生成一个被代理类的子类作为代理 基于类的代理 动态代理与静态代理的区别：静态代理由coder（或特殊工具）创建，通常只代理一个类；动态代理运用反射机制动态生成，代理一个接口下的多个类 代理是一种常用的设计模式，如在创建一个类对象前后添加业务逻辑，这个过程在代理类中实现（调用代理类） 怎么理解SpringIOC？ Inversion Of Control，即控制反转，一种设计思想。 传统对象创建：new ，依赖关系（如Student的Score，需要手动指定依赖） IOC：根据配置加载并实例化Bean，保存到IOC容器中—\u003eApplicationContext.getBean(Student.class); 控制：对象的创建、初始化、销毁—\u003enew到Spring容器创建、setter到容器自动注入、赋值null或销毁到Spring管理生命周期 反转：反转对象的控制权（从coder到IOC容器） 依赖倒置、依赖注入、控制反转是什么？ 控制反转：反转控制权（详见上），从coder到框架控制程序执行流程 依赖注入：一个具体的编码技巧。（详见上）不通过new，而是外部创建依赖的类对象，通过构造函数，函数参数等方式注入给类使用 依赖倒置：指导框架层面的设计。高层模块不依赖低层模块，它们共同依赖同一个抽象（具体实现细节依赖对象，抽象不依赖细节） 设计一个IOC，考虑哪些问题？ Bean的生命周期管理 依赖注入功能（考虑通过反射与XML配置文件实现） Bean的作用域，如单例、原型、会话、请求等（考虑Map实现） AOP功能实现（考虑动态代理机制与切面编程实现） 异常处理，如Bean创建异常，依赖注入异常等（考虑try-catch） 配置文件加载，从不同配置文件中加载Bean的相关信息（考虑XML、注解或Java配置类实现） AOP主要想解决什么问题？ 对OOP思维的补充，非侵入性的功能增强（如日志） 具体实现：在Aspect中定义增强Advice，包含具体实现，整理切入点（粒度是方法），最后织入到对象的方法中 AOP实现有哪些注解？ @Aspect 定义切面，标注在切面类上 @Pointcut 定义切点，标注在方法上，指定连接点 @Before 方法执行前执行通知，通用的是@Advice 什么是反射及其使用场景 反射特性： 运行时可访问类信息—\u003e可获取类的完整结构信息，包括类名、包名、父类等 动态对象创建—\u003e 可以使用反射API动态地创建对象实例，即使在编译时不知道具体的类名。通过Class 或 Constructor 对象的 newInstance() 方法实现 动态方法调用—\u003e 运行时可以动态地调用对象的方法，包括私有方法 访问与修改字段值—\u003e 允许程序在运行时访问和修改对象的字段值，包括私有字段 运用场景：依赖注入（如Autowired）与控制反转 + 动态代理的实现（如AOP） Bean Bean的生命周期？ Spring启动时，查找并加载需要被Spring管理的Bean并实例化 Bean实例化后将对Bean的引入和值注入到Bean的属性中 若实现BeanNameAware接口，将Bean的Id传给setBeanName()方法 / 若实现BeanFactoryAware接口，将BeanFactory容器实例传入 / 若实现ApplicationContextAware接口，将Bean上下文引用传入 / 若实现BeanPostProcessor接口，调用postProcessBeforeInitialization()方法 / … Bean准备就绪，驻留在应用上下文中，直到上下文被销毁 若实现DisposableBean接口，调用其destroy()接口方法；若Bean使用destory-method声明销毁方法，则调用该方法 Bean是否单例？ 默认单例，可设置scope为prototype实现多例 Bean生命周期在单例和非单例一样吗？ 否。Bean生命周期由IOC容器控制，Spring只管理单例Bean的完整生命周期，多例的Bean在Spring创建好后不再管理生命周期 Bean的作用域有哪些？ Singleton：（对于一个类）整个应用程序中只有一个Bean实例，在整个生命周期中共享该实例 Prototype：每次请求都创建一个新Bean Request：每个HTTP请求都创建一个新实例 Session：Session范围内只创建一个实例，仅在Spring Web中程序中有效 Application：当前ServletContext中只有一个Bean实例，仅在Spring Web中程序中有效 WebSocket：Web套接字中只存在一个Bean实例 Custom scopes：开发者自定 Spring容器中存什么？ 主要存储Bean对象。根据配置文件或注解方式创建、管理Bean对象 在Bean加载/销毁前后，怎么实现某些逻辑呢？ 使用Spring的生命周期回调接口或注解： XML配置中指定init- method和destroy- method属性，后在Bean类中实现 Bean类实现InitializingBean和DisposableBean接口，并分别实现afterPropertiesSet与destroy方法 Bean类中定义带@PostConstruct和@PreDestory注解的方法 @Bean注解的init- method和destroy- method属性 Bean注入和XML注入效果相同，底层如何？ XML注入：Bean定义解析（读取标签获取Bean定义信息） —\u003e 注册Bean（如注册到BeanDefinitionRegistry） —\u003e 实例化和依赖注入（通过反射创建Bean实例，后根据Bean定义中的配置，通过setter、构造函数注入需要的依赖Bean） 注解注入：类路径扫描（@Component、@Service、@Repository、@Controller注解的类） —\u003e 注册Bean定义 —\u003e 依赖注入（检查字段上是否有@Autowired、@Inject、@Resource注解，若有则根据注解注入） 底层相似性：BeanDefinition（最终都会生成BeanDefinition对象） + 后处理器（如AutowiredAnnotationBeanPostProcessor处理Autowired注解的依赖注入 \u0026 XML也有） + 依赖查找（通过BeanFactory查找和注入依赖 三级缓存 Spring 如何解决循环依赖？ 循环依赖的三种情况：\n构造方法进行依赖注入时产生，如：（无法解决，因为发生在Bean实例化阶段，未创建早期对象，无法放入三级缓存） @Component public class BeanA { private BeanB beanB; @Autowired public BeanA(BeanB beanB) { this.beanB = beanB; } } @Component public class BeanB { private BeanA beanA; @Autowired public BeanB(BeanA beanA) { this.beanA = beanA; } } setter方法进行依赖注入时产生 \u0026 多例（原型）模式（作用域Scope指定为Prototype） 多例（原型）：（如并发场景）在原型作用域下，每次请求都创建一个新实例，一般在请求结束后销毁 不会导致初始化失败，但每次请求都会创建很多实例—\u003e性能问题 @Component @Scope(\"prototype\") public class BeanA { private BeanB beanB; @Autowired public void setBeanB(BeanB beanB) { this.beanB = beanB; } } setter方法进行依赖注入时产生 \u0026 单例模式（被解决） 解决方法：三级缓存—\u003eSpring创建Bean时，通过三级缓存缓存正在创建的Bean与创建完成的Bean实例。步骤：\n尝试创建Bean A的实例，将A的工厂对象放入三级缓存 赋值时如果发现循环依赖，将当前Bean A对象提前暴露给后续需要依赖的Bean B Bean B在三级缓存查到A，半成品A放入二级缓存（存储早期暴露的对象，已实例化未初始化） 初始化Bean：将 Bean B 进行初始化并放入一级缓存，清空其二三级缓存 注入依赖：继续对Bean A进行依赖注入，发现循环依赖时从三级缓存中获取工厂对象 整过程例：Spring先创建A的实例，并将A的工厂对象放入三级缓存。当创建B时，B会尝试从缓存中获取A。由于A还未完全创建好，B会从三级缓存中获取A的工厂对象，并通过工厂对象获取A的早期引用。这个早期引用是A的半成品（并放入二级缓存中），但已足够B使用。随后，B完成创建（并清空 其 二三级缓存，且二级空）并返回给A，A继续其初始化过程，最后清空 其 二三级缓存，且三级空 三级缓存的数据结构是？ Map 一级缓存（singletonObjects）：存放完全初始化的Bean，可直接使用 二级缓存（earlySingletonObjects）：存放属性未完全注入的半成品Bean 三级缓存（singletonFactories）：存放Bean的工厂对象，用于生成Bean的早期引用 Spring框架用到哪些设计模式？（以下省略“模式”二字） 工厂设计模式：创建Bean对象 代理设计：AOP功能的实现 单例设计：Bean默认为单例 模版方法：以Template结尾的对数据库操作的类（eg.MongoTemplate） 包装器设计： 观察者：Spring的事件驱动模型 适配器：AOP的增强或Advice、MVC用到适配器模式以适配Controller MVC 介绍 一种软件设计规范，业务逻辑、数据、界面显示分离的方法组织代码 Model：代表一个存取数据的对象或 JAVA POJO（Plain Old Java Object，简单java对象）。它也可以带有逻辑，主要用于承载数据，并对用户提交请求进行计算的模块。模型分为两类，一类称为数据承载Bean，一类称为业务处理Bean。所谓数据承载 Bean是指实体类（如：User类），专门为用户承载业务数据的；而业务处理 Bean 则是指Service 或 Dao 对象， 专门用于处理用户提交请求的 View：用户直接交互的使用界面 Controller：将用户请求转发到相应的model，根据model的计算结果向用户提供响应，分离视图与模型 基本流程：用户从View页面提出请求，服务端Controller接收请求后解析，找到对应Model，Model处理后结果交给Controller（承上启下），根据结果找到要发回的响应View页面，渲染后发回客户端 具体流程？详见 HandlerMapping和HandlerAdapter mapping：将请求映射到Controller。BeanNameUrlHandlerMapping等可实现。根据URL、请求参数等规则确定对应的处理器 adapter：调用Controller处理请求。根据Controller类型选择合适方法调用。根据Controller接口类型，选择对应的HandlerAdapter调用它 事务 通过代理对象\n事务什么情况下失效？@Transactional 开启事务情况 未捕获异常 非受检异常：RuntimeException或其子类 事务传播属性设置不当：事务嵌套且配置不正确，注意方法内调用具有该注解的方法 多数据源的事务管理：多数据源，事务管理配置不当/存在多个事务注解 跨方法调用事务问题：如果一个事务方法内部调用另一个方法，而这个被调用的方法没有 @Transactional 注解，此时外层事务可能失效 事务在非公开方法中失效：注解标注在非public方法上 使用this调用Spring事务是否生效？ 否。Spring事务通过代理对象控制，this 调用会绕过代理机制，不会应用事务设置 其它 Spring拓展点？ BeanFactoryPostProcessor：实例化Bean前修改Bean定义 BeanPostProcessor：Bean实例化、配置与初始化之后进行额外处理 Spring MVC中的HandlerInterceptor：拦截处理请求，在请求前、中、后执行特定逻辑 Spring MVC中的ControllerAdvice：全局处理控制器异常、数据绑定与数据校验 自定义注解：权限控制 日志记录等功能 ",
+  "wordCount" : "5870",
+  "inLanguage": "en",
+  "datePublished": "2025-01-08T21:11:00+08:00",
+  "dateModified": "2025-01-24T21:02:00+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Satti"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--spring/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Satti's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Sattiluvcat.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Sattiluvcat.github.io/en/" accesskey="h" title="Satti&#39;s Blog (Alt + H)">
+                <img src="https://Sattiluvcat.github.io/img/label1.jpg" alt="" aria-label="logo"
+                    height="35">Satti&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Sattiluvcat.github.io/en/search/" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Sattiluvcat.github.io/en/" title="🏠主页">
+                    <span>🏠主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Sattiluvcat.github.io/en/tags" title="📑标签">
+                    <span>📑标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Sattiluvcat.github.io/en/lulu/" title="😽Lulu">
+                    <span>😽Lulu</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Sattiluvcat.github.io/en/archives/" title="📅时间轴">
+                    <span>📅时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Sattiluvcat.github.io/en/about/" title="😎关于">
+                    <span>😎关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://Sattiluvcat.github.io/en/">Home</a>&nbsp;»&nbsp;<a href="https://Sattiluvcat.github.io/en/posts/">文章</a>&nbsp;»&nbsp;<a href="https://Sattiluvcat.github.io/en/posts/notes/">Notes📓</a></div>
+    <h1 class="post-title entry-hint-parent">
+      八股——Spring
+    </h1>
+    <div class="post-description">
+      梳理一些关于Spring的知识内容
+    </div>
+    <div class="post-meta">
+<span title='2025-01-08 21:11:00 +0800 CST'>2025-01-08</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;<span title='Last updated 2025-01-24 21:02:00 +0800 CST'>Last updated on 2025-01-24</span>&nbsp;·&nbsp;Satti
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#spring" aria-label="Spring">Spring</a><ul>
+                            
+                    <li>
+                        <a href="#%e6%a6%82%e8%bf%b0" aria-label="概述">概述</a></li>
+                    <li>
+                        <a href="#ioc--aop" aria-label="IOC &amp; AOP">IOC &amp; AOP</a></li>
+                    <li>
+                        <a href="#bean" aria-label="Bean">Bean</a></li>
+                    <li>
+                        <a href="#%e4%b8%89%e7%ba%a7%e7%bc%93%e5%ad%98" aria-label="三级缓存">三级缓存</a></li>
+                    <li>
+                        <a href="#mvc" aria-label="MVC">MVC</a></li>
+                    <li>
+                        <a href="#%e4%ba%8b%e5%8a%a1" aria-label="事务">事务</a></li>
+                    <li>
+                        <a href="#%e5%85%b6%e5%ae%83" aria-label="其它">其它</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p> </p>
+<p> </p>
+<h2 id="spring">Spring<a hidden class="anchor" aria-hidden="true" href="#spring">#</a></h2>
+<h3 id="概述">概述<a hidden class="anchor" aria-hidden="true" href="#概述">#</a></h3>
+<ol>
+<li>Spring框架核心特性：
+<ol>
+<li>IOC（控制反转 Inversion of Control）容器：实现了对象的创建和对象间的依赖关系管理</li>
+<li>AOP（面向切面编程 Aspect-Oriented Programming）：允许开发者定义横切关注点，独立于业务逻辑代码</li>
+<li>事务管理：提供了一致的事务管理接口，支持声明式和编程式事务</li>
+</ol>
+<ul>
+<li>声明式：注解 &amp; 编程式：自行实现代码</li>
+</ul>
+<ol start="4">
+<li>MVC框架：基于Servlet API构建的Web框架，采用模型-视图-控制器（MVC）架构</li>
+</ol>
+<ul>
+<li>支持URL到页面控制器的映射与多种视图技术</li>
+</ul>
+</li>
+</ol>
+<h3 id="ioc--aop">IOC &amp; AOP<a hidden class="anchor" aria-hidden="true" href="#ioc--aop">#</a></h3>
+<ol>
+<li>IOC与AOP简述：
+<ol>
+<li>区别：</li>
+</ol>
+<ul>
+<li>IOC：一种创建和获取对象的技术思想，可以通过依赖注入（DI）实现。不需<code>new</code>对象，而是由IOC容器来实例化对象，可降低对象间的耦合度</li>
+<li>AOP：能够将那些与业务无关，却为业务模块所共同调用的逻辑封装起来，以减少系统重复代码，降低模块间的耦合度
+<ul>
+<li>Spring AOP基于动态代理，若需代理的对象实现了某接口，则使用JDK proxy创建代理对象；若没实现接口（不能用proxy），则用Cglib生成一个被代理对象的子类作为代理</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>IOC 和 AOP 结合使用，可以更好地实现代码的模块化和分层管理</li>
+</ol>
+<ul>
+<li>eg. IOC 容器管理对象的依赖关系，AOP 将横切关注点统一切入到需要的业务逻辑中</li>
+<li>eg. IOC 容器管理 Service 层和 DAO 层（Data Access Object）的依赖关系，AOP 在 Service 层实现事务管理、日志记录等横切功能</li>
+</ul>
+</li>
+<li>AOP详述：
+<ul>
+<li>背景：在 OOP（面向对象编程） 中最小的单元就是“Class 对象”，AOP中最小的单元是“切面”（一个“切面”可以包含很多种类型和对象，对它们进行模块化管理）
+<ul>
+<li>AOP中功能分为核心业务 &amp; 周边功能（eg. 日志 事务 权限）</li>
+</ul>
+</li>
+<li>作用：将与业务无关，却为业务模块所共同调用的逻辑封装，减少系统的重复代码，降低模块耦合度，利于未来的可拓展性与可维护性</li>
+<li>AOP中的一些概念：
+<img loading="lazy" src="image.png" alt="alt text"  />
+</li>
+<li>Spring AOP基于JDK动态代理 / Cglib实现，均属于运行的方式，不通过编译&ndash;&gt;Spring通过java代码实现</li>
+</ul>
+</li>
+<li>IOC 通过什么机制实现？
+<ul>
+<li>反射：利用Java的<strong>反射</strong>机制动态地加载<strong>类</strong>、创建对象<strong>实例</strong>、调用对象<strong>方法</strong></li>
+<li>依赖注入：（核心）<strong>容器</strong>负责管理（应用程序）组件间的依赖关系—&gt;通过配置文件或注解描述依赖关系</li>
+<li>设计模式—工厂模式：容器通常采用工厂模式来管理对象的创建与生命周期</li>
+<li>容器：（实现IOC的核心）通常用<code>BeanFactory</code>（基本）或<code>ApplicationContext</code>（企业级）管理Bean。</li>
+</ul>
+</li>
+<li>AOP 通过什么机制实现（原理）？
+<ul>
+<li><strong>动态代理</strong>技术—&gt;运行时动态生成代理对象，而非编译时（允许在运行时指定要代理的接口和行为，不修改源码而增强功能）
+<ul>
+<li>基于JDK的动态代理——<code>java.lang.reflect.Proxy</code>类与<code>java.lang.reflect.InvocationHandler</code>接口实现。需要代理类实现接口
+<ul>
+<li>基于<strong>接口</strong>的代理</li>
+</ul>
+</li>
+<li>基于CGLIB的动态代理——被代理的类没有实现接口时，使用CGLIB库生成一个被代理类的<strong>子类</strong>作为代理
+<ul>
+<li>基于<strong>类</strong>的代理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>动态代理与静态代理的区别</strong>：静态代理由coder（或特殊工具）创建，通常只代理一个类；动态代理运用反射机制动态生成，代理一个接口下的多个类
+<ul>
+<li>代理是一种常用的设计模式，如在创建一个类对象前后添加业务逻辑，这个过程在代理类中实现（调用代理类）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>怎么理解SpringIOC？
+<ul>
+<li>Inversion Of Control，即控制反转，一种设计思想。
+<ul>
+<li>传统对象创建：<code>new</code> ，依赖关系（如Student的Score，需要手动指定依赖）</li>
+<li>IOC：根据配置加载并实例化Bean，保存到IOC容器中—&gt;<code>ApplicationContext.getBean(Student.class);</code></li>
+</ul>
+</li>
+<li>控制：对象的创建、初始化、销毁—&gt;new到Spring容器创建、setter到容器自动注入、赋值null或销毁到Spring管理生命周期</li>
+<li>反转：反转对象的控制权（从coder到IOC容器）</li>
+</ul>
+</li>
+<li>依赖倒置、依赖注入、控制反转是什么？
+<ul>
+<li>控制反转：反转控制权（详见上），从coder到框架控制程序执行流程</li>
+<li>依赖注入：一个具体的编码技巧。（详见上）不通过new，而是外部创建依赖的类对象，通过构造函数，函数参数等方式注入给类使用</li>
+<li>依赖倒置：指导框架层面的设计。高层模块不依赖低层模块，它们共同依赖同一个抽象（具体实现细节依赖对象，抽象不依赖细节）</li>
+</ul>
+</li>
+<li>设计一个IOC，考虑哪些问题？
+<ul>
+<li>Bean的生命周期管理</li>
+<li>依赖注入功能（考虑通过反射与XML配置文件实现）</li>
+<li>Bean的作用域，如单例、原型、会话、请求等（考虑Map实现）</li>
+<li>AOP功能实现（考虑动态代理机制与切面编程实现）</li>
+<li>异常处理，如Bean创建异常，依赖注入异常等（考虑try-catch）</li>
+<li>配置文件加载，从不同配置文件中加载Bean的相关信息（考虑XML、注解或Java配置类实现）</li>
+</ul>
+</li>
+<li>AOP主要想解决什么问题？
+<ul>
+<li>对OOP思维的补充，非侵入性的功能增强（如日志）</li>
+<li>具体实现：在Aspect中定义增强Advice，包含具体实现，整理切入点（粒度是方法），最后织入到对象的方法中</li>
+</ul>
+</li>
+<li>AOP实现有哪些注解？
+<ul>
+<li><code>@Aspect</code> 定义切面，标注在切面类上</li>
+<li><code>@Pointcut</code> 定义切点，标注在方法上，指定连接点</li>
+<li><code>@Before</code> 方法执行前执行通知，通用的是<code>@Advice</code></li>
+</ul>
+</li>
+<li>什么是反射及其使用场景
+<ol>
+<li>反射特性：
+<ul>
+<li>运行时可访问类信息—&gt;可获取类的完整结构信息，包括类名、包名、父类等</li>
+<li>动态对象创建—&gt; 可以使用反射API动态地<strong>创建对象实例</strong>，即使在编译时不知道具体的类名。通过<code>Class</code> 或 <code>Constructor</code> 对象的 <code>newInstance()</code> 方法实现</li>
+<li>动态方法调用—&gt; 运行时可以动态地调用对象的方法，包括私有方法</li>
+<li>访问与修改字段值—&gt; 允许程序在运行时访问和修改对象的字段值，包括私有字段</li>
+</ul>
+</li>
+<li>运用场景：依赖注入（如<code>Autowired</code>）与控制反转 + 动态代理的实现（如AOP）
+<img loading="lazy" src="10653d1697fc870100fce9453141601.jpg" alt="alt text"  />
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="bean">Bean<a hidden class="anchor" aria-hidden="true" href="#bean">#</a></h3>
+<ol>
+<li>Bean的生命周期？
+<ul>
+<li>Spring启动时，查找并加载需要被Spring管理的Bean并实例化</li>
+<li>Bean实例化后将对Bean的引入和值注入到Bean的属性中</li>
+<li>若实现<code>BeanNameAware</code>接口，将Bean的Id传给<code>setBeanName()</code>方法 / 若实现<code>BeanFactoryAware</code>接口，将BeanFactory容器实例传入 / 若实现<code>ApplicationContextAware</code>接口，将Bean上下文引用传入 / 若实现<code>BeanPostProcessor</code>接口，调用<code>postProcessBeforeInitialization()</code>方法 / …</li>
+<li>Bean准备就绪，驻留在应用上下文中，直到上下文被销毁</li>
+<li>若实现<code>DisposableBean</code>接口，调用其destroy()接口方法；若Bean使用destory-method声明销毁方法，则调用该方法</li>
+</ul>
+</li>
+<li>Bean是否单例？
+<ul>
+<li>默认单例，可设置scope为<code>prototype</code>实现多例</li>
+</ul>
+</li>
+<li>Bean生命周期在单例和非单例一样吗？
+<ul>
+<li>否。Bean生命周期由IOC容器控制，Spring只管理单例Bean的完整生命周期，多例的Bean在Spring创建好后不再管理生命周期</li>
+</ul>
+</li>
+<li>Bean的作用域有哪些？
+<ul>
+<li>Singleton：（对于一个类）整个应用程序中<strong>只有一个Bean实例</strong>，在整个生命周期中共享该实例</li>
+<li>Prototype：每次请求都创建一个新Bean</li>
+<li>Request：每个HTTP请求都创建一个新实例</li>
+<li>Session：Session范围内只创建一个实例，仅在Spring Web中程序中有效</li>
+<li>Application：当前ServletContext中只有一个Bean实例，仅在Spring Web中程序中有效</li>
+<li>WebSocket：Web套接字中只存在一个Bean实例</li>
+<li>Custom scopes：开发者自定</li>
+</ul>
+</li>
+<li>Spring容器中存什么？
+<ul>
+<li><strong>主要</strong>存储Bean对象。根据配置文件或注解方式创建、管理Bean对象</li>
+</ul>
+</li>
+<li>在Bean加载/销毁前后，怎么实现某些逻辑呢？
+<ul>
+<li>使用Spring的生命周期回调接口或注解：
+<ol>
+<li>XML配置中指定init- method和destroy- method属性，后在Bean类中实现</li>
+<li>Bean类实现<code>InitializingBean</code>和<code>DisposableBean</code>接口，并分别实现<code>afterPropertiesSet</code>与<code>destroy</code>方法</li>
+<li>Bean类中定义带@<code>PostConstruct</code>和<code>@PreDestory</code>注解的方法</li>
+<li><code>@Bean</code>注解的init- method和destroy- method属性</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Bean注入和XML注入效果相同，底层如何？
+<ol>
+<li>XML注入：Bean定义解析（读取<code>&lt;bean&gt;</code>标签获取Bean定义信息） —&gt; 注册Bean（如注册到<code>BeanDefinitionRegistry</code>） —&gt; 实例化和依赖注入（通过反射创建Bean实例，后根据Bean定义中的配置，通过setter、构造函数注入需要的依赖Bean）</li>
+<li>注解注入：类路径扫描（<code>@Component</code>、<code>@Service</code>、<code>@Repository</code>、<code>@Controller</code>注解的类） —&gt; 注册Bean定义 —&gt; 依赖注入（检查字段上是否有<code>@Autowired</code>、<code>@Inject</code>、<code>@Resource</code>注解，若有则根据注解注入）</li>
+<li>底层相似性：BeanDefinition（最终都会生成BeanDefinition对象） + 后处理器（如<code>AutowiredAnnotationBeanPostProcessor</code>处理Autowired注解的依赖注入 &amp; XML也有） + 依赖查找（通过BeanFactory查找和注入依赖</li>
+</ol>
+</li>
+</ol>
+<h3 id="三级缓存">三级缓存<a hidden class="anchor" aria-hidden="true" href="#三级缓存">#</a></h3>
+<ol>
+<li>Spring 如何解决循环依赖？
+<ol>
+<li>
+<p>循环依赖的三种情况：</p>
+<ul>
+<li>构造方法进行依赖注入时产生，如：（无法解决，因为发生在Bean实例化阶段，未创建早期对象，无法放入三级缓存）</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BeanA</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BeanB</span><span class="w"> </span><span class="n">beanB</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BeanA</span><span class="p">(</span><span class="n">BeanB</span><span class="w"> </span><span class="n">beanB</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">beanB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beanB</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BeanB</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BeanA</span><span class="w"> </span><span class="n">beanA</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BeanB</span><span class="p">(</span><span class="n">BeanA</span><span class="w"> </span><span class="n">beanA</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">beanA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beanA</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>setter方法进行依赖注入时产生 &amp; 多例（原型）模式（作用域<code>Scope</code>指定为<code>Prototype</code>）
+<ul>
+<li>多例（原型）：（如并发场景）在原型作用域下，每次请求都创建一个新实例，一般在请求结束后销毁</li>
+<li>不会导致初始化失败，但每次请求都会创建很多实例—&gt;性能问题</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Component</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Scope</span><span class="p">(</span><span class="s">&#34;prototype&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BeanA</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="n">BeanB</span><span class="w"> </span><span class="n">beanB</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nd">@Autowired</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setBeanB</span><span class="p">(</span><span class="n">BeanB</span><span class="w"> </span><span class="n">beanB</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="k">this</span><span class="p">.</span><span class="na">beanB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beanB</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>setter方法进行依赖注入时产生 &amp; 单例模式（被解决）</li>
+</ul>
+</li>
+<li>
+<p>解决方法：<strong>三级缓存</strong>—&gt;Spring创建Bean时，通过三级缓存缓存正在创建的Bean与创建完成的Bean实例。步骤：</p>
+<ul>
+<li>尝试创建Bean A的实例，将A的工厂对象放入三级缓存</li>
+<li>赋值时如果发现循环依赖，将当前Bean A对象<strong>提前暴露</strong>给后续需要依赖的Bean B</li>
+<li>Bean B在三级缓存查到A，半成品A放入二级缓存（存储早期暴露的对象，已实例化未初始化）</li>
+<li>初始化Bean：将 Bean B 进行初始化并放入一级缓存，清空其二三级缓存</li>
+<li>注入依赖：继续对Bean A进行依赖注入，发现循环依赖时从三级缓存中获取工厂对象</li>
+<li>整过程例：Spring先创建A的实例，并将A的工厂对象放入三级缓存。当创建B时，B会尝试从缓存中获取A。由于A还未完全创建好，B会从三级缓存中获取A的工厂对象，并通过工厂对象获取A的<strong>早期引用</strong>。这个早期引用是A的半成品（并放入二级缓存中），但已足够B使用。随后，B完成创建（并清空 <strong>其</strong> 二三级缓存，且二级空）并返回给A，A<strong>继续</strong>其初始化过程，最后清空 <strong>其</strong> 二三级缓存，且三级空</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>三级缓存的数据结构是？
+<ul>
+<li><strong>Map</strong></li>
+</ul>
+<ol>
+<li>一级缓存（<strong>singletonObjects</strong>）：存放完全初始化的Bean，可直接使用</li>
+<li>二级缓存（<strong>earlySingletonObjects</strong>）：存放属性未完全注入的半成品Bean</li>
+<li>三级缓存（<strong>singletonFactories</strong>）：存放Bean的工厂对象，用于生成Bean的早期引用</li>
+</ol>
+</li>
+<li>Spring框架用到哪些设计模式？（以下省略“模式”二字）
+<ul>
+<li>工厂设计模式：创建Bean对象</li>
+<li>代理设计：AOP功能的实现</li>
+<li>单例设计：Bean默认为单例</li>
+<li>模版方法：以Template结尾的对数据库操作的类（eg.<code>MongoTemplate</code>）</li>
+<li>包装器设计：</li>
+<li>观察者：Spring的事件驱动模型</li>
+<li>适配器：AOP的增强或Advice、MVC用到适配器模式以适配Controller</li>
+</ul>
+</li>
+</ol>
+<h3 id="mvc">MVC<a hidden class="anchor" aria-hidden="true" href="#mvc">#</a></h3>
+<ol>
+<li>介绍
+<ol>
+<li>一种软件设计规范，业务逻辑、数据、界面显示分离的方法组织代码</li>
+<li>Model：代表一个存取数据的对象或 JAVA POJO（Plain Old Java Object，简单java对象）。它也可以带有逻辑，主要用于承载数据，并对用户提交请求进行计算的模块。模型分为两类，一类称为数据承载Bean，一类称为业务处理Bean。所谓数据承载 Bean是指实体类（如：User类），专门为用户承载业务数据的；而业务处理 Bean 则是指Service 或 Dao 对象， 专门用于处理用户提交请求的</li>
+<li>View：用户直接交互的使用界面</li>
+<li>Controller：将用户请求转发到相应的model，根据model的计算结果向用户提供响应，分离视图与模型</li>
+<li>基本流程：用户从View页面提出请求，服务端Controller接收请求后解析，找到对应Model，Model处理后结果交给Controller（承上启下），<strong>根据结果</strong>找到要发回的<strong>响应View页面</strong>，渲染后发回客户端</li>
+</ol>
+</li>
+<li>具体流程？<a href="https://Sattiluvcat.github.io/en/posts/java/%E7%82%B9%E8%AF%84proj/#JWT&#43;Interceptor##引申">详见</a></li>
+<li>HandlerMapping和HandlerAdapter
+<ol>
+<li>mapping：将请求映射到Controller。BeanNameUrlHandlerMapping等可实现。根据URL、请求参数等规则确定对应的处理器</li>
+<li>adapter：调用Controller处理请求。根据Controller类型选择合适方法调用。根据Controller接口类型，选择对应的HandlerAdapter调用它</li>
+</ol>
+</li>
+</ol>
+<h3 id="事务">事务<a hidden class="anchor" aria-hidden="true" href="#事务">#</a></h3>
+<blockquote>
+<p>通过代理对象</p>
+</blockquote>
+<ol>
+<li>事务什么情况下失效？<code>@Transactional</code> 开启事务情况
+<ul>
+<li>未捕获异常</li>
+<li>非受检异常：<code>RuntimeException</code>或其子类</li>
+<li>事务传播属性设置不当：事务嵌套且配置不正确，注意方法内调用具有该注解的方法</li>
+<li>多数据源的事务管理：多数据源，事务管理配置不当/存在多个事务注解</li>
+<li>跨方法调用事务问题：如果一个事务方法内部调用另一个方法，而这个被调用的方法没有 <code>@Transactional</code> 注解，此时外层事务可能失效</li>
+<li>事务在非公开方法中失效：注解标注在非public方法上</li>
+</ul>
+</li>
+<li>使用this调用Spring事务是否生效？
+<ul>
+<li>否。Spring事务通过代理对象控制，<code>this</code> 调用会绕过代理机制，不会应用事务设置</li>
+</ul>
+</li>
+</ol>
+<h3 id="其它">其它<a hidden class="anchor" aria-hidden="true" href="#其它">#</a></h3>
+<ol>
+<li>Spring拓展点？
+<ol>
+<li>BeanFactoryPostProcessor：实例化Bean前修改Bean定义</li>
+<li>BeanPostProcessor：Bean实例化、配置与初始化之后进行额外处理</li>
+<li>Spring MVC中的HandlerInterceptor：拦截处理请求，在请求前、中、后执行特定逻辑</li>
+<li>Spring MVC中的ControllerAdvice：全局处理控制器异常、数据绑定与数据校验</li>
+<li><strong>自定义注解</strong>：权限控制 日志记录等功能</li>
+</ol>
+</li>
+</ol>
+
+
+    
+
+  
+<script type="module">  
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs'; 
     mermaid.initialize({ startOnLoad: true });  
-</script><script>Array.from(document.getElementsByClassName("language-mermaid")).forEach(e=>{e.parentElement.outerHTML=`<div class="mermaid">${e.innerHTML}</div>`})</script><style>.mermaid svg{display:block;margin:auto}</style></div><footer class=post-footer><ul class=post-tags><li><a href=https://Sattiluvcat.github.io/en/tags/java/>Java</a></li><li><a href=https://Sattiluvcat.github.io/en/tags/spring/>Spring</a></li></ul><nav class=paginav><a class=prev href=https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--java/><span class=title>« Prev</span><br><span>八股——Java</span>
-</a><a class=next href=https://Sattiluvcat.github.io/en/posts/hobbies/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E7%94%B5%E5%BD%B1%E4%B9%8B%E5%A4%9C/><span class=title>Next »</span><br><span>从0开始的电影之夜</span></a></nav><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share 八股——Spring on x" href="https://x.com/intent/tweet/?text=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&amp;url=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f&amp;hashtags=Java%2cSpring"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 八股——Spring on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f&amp;title=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&amp;summary=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&amp;source=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 八股——Spring on reddit" href="https://reddit.com/submit?url=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f&title=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 八股——Spring on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 八股——Spring on whatsapp" href="https://api.whatsapp.com/send?text=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring%20-%20https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 八股——Spring on telegram" href="https://telegram.me/share/url?text=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&amp;url=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentcolor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 八股——Spring on ycombinator" href="https://news.ycombinator.com/submitlink?t=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&u=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentcolor" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer><div id=disqus_thread></div><script>(function(){var e=document,t=e.createElement("script");t.src="https://www-sattiluvcat-github-io.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><script id=dsq-count-scr src=//www-sattiluvcat-github-io.disqus.com/count.js async></script></article></main><footer class=footer><span>&copy; 2025 <a href=https://Sattiluvcat.github.io/en/>Satti's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
-</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-551JRG13S2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-551JRG13S2")</script></body></html>
+</script>  
+<script>  
+    
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(  
+        (el) => {  
+            el.parentElement.outerHTML = `<div class="mermaid">${el.innerHTML}</div>`;  
+        }  
+    );  
+</script>  
+<style>  
+       
+    .mermaid svg {  
+        display: block;  
+        margin: auto;  
+    }  
+</style>  
+</div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Sattiluvcat.github.io/en/tags/java/">Java</a></li>
+      <li><a href="https://Sattiluvcat.github.io/en/tags/spring/">Spring</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://Sattiluvcat.github.io/en/posts/notes/%E5%85%AB%E8%82%A1--java/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>八股——Java</span>
+  </a>
+  <a class="next" href="https://Sattiluvcat.github.io/en/posts/hobbies/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E7%94%B5%E5%BD%B1%E4%B9%8B%E5%A4%9C/">
+    <span class="title">Next »</span>
+    <br>
+    <span>从0开始的电影之夜</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 八股——Spring on x"
+            href="https://x.com/intent/tweet/?text=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&amp;url=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f&amp;hashtags=Java%2cSpring">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 八股——Spring on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f&amp;title=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&amp;summary=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&amp;source=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 八股——Spring on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f&title=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 八股——Spring on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 八股——Spring on whatsapp"
+            href="https://api.whatsapp.com/send?text=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring%20-%20https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 八股——Spring on telegram"
+            href="https://telegram.me/share/url?text=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&amp;url=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 八股——Spring on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=%e5%85%ab%e8%82%a1%e2%80%94%e2%80%94Spring&u=https%3a%2f%2fSattiluvcat.github.io%2fen%2fposts%2fnotes%2f%25E5%2585%25AB%25E8%2582%25A1--spring%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer><div id="disqus_thread"></div>
+<script>
+    
+
+    
+
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://www-sattiluvcat-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <script id="dsq-count-scr" src="//www-sattiluvcat-github-io.disqus.com/count.js" async></script>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://Sattiluvcat.github.io/en/">Satti&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-551JRG13S2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-551JRG13S2');
+</script>
+
+
+
+
+</body>
+
+</html>
