@@ -6,8 +6,15 @@
     <description>Recent content in Else🔧 on Satti&#39;s Blog</description>
     <generator>Hugo -- 0.146.4</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 28 Jan 2025 16:21:32 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Apr 2025 00:20:47 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/posts/else/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo小问题</title>
+      <link>https://Sattiluvcat.github.io/en/posts/else/hugo%E5%B0%8F%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 15 Apr 2025 00:00:47 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/else/hugo%E5%B0%8F%E9%97%AE%E9%A2%98/</guid>
+      <description>hugo版本更新后的奇妙报错</description>
+    </item>
     <item>
       <title>VF-RRT</title>
       <link>https://Sattiluvcat.github.io/en/posts/else/vf-rrt/</link>
