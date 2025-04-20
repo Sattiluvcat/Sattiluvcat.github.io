@@ -4,10 +4,17 @@
     <title>Java💻 on Satti&#39;s Blog</title>
     <link>https://Sattiluvcat.github.io/en/posts/java/</link>
     <description>Recent content in Java💻 on Satti&#39;s Blog</description>
-    <generator>Hugo -- 0.146.4</generator>
+    <generator>Hugo -- 0.146.5</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 10 Apr 2025 15:47:40 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Apr 2025 16:37:01 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/posts/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CompletableFuture应用</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/completablefuture%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Sun, 20 Apr 2025 11:59:01 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/completablefuture%E5%BA%94%E7%94%A8/</guid>
+      <description>Java中CompletableFuture类的基本应用与分析</description>
+    </item>
     <item>
       <title>微服务</title>
       <link>https://Sattiluvcat.github.io/en/posts/java/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
