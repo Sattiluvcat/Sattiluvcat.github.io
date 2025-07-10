@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ElasticSearch on Satti&#39;s Blog</title>
+    <link>https://Sattiluvcat.github.io/en/tags/elasticsearch/</link>
+    <description>Recent content in ElasticSearch on Satti&#39;s Blog</description>
+    <generator>Hugo -- 0.148.0</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 03 Jul 2025 10:02:00 +0800</lastBuildDate>
+    <atom:link href="https://Sattiluvcat.github.io/en/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ElasticSearch运用之Movie Night</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/elasticsearch%E8%BF%90%E7%94%A8/</link>
+      <pubDate>Tue, 01 Jul 2025 17:18:00 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/elasticsearch%E8%BF%90%E7%94%A8/</guid>
+      <description>Movie Night中的一些ES小巧思</description>
+    </item>
+  </channel>
+</rss>

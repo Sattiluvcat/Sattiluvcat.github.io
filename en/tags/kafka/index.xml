@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Kafka on Satti&#39;s Blog</title>
+    <link>https://Sattiluvcat.github.io/en/tags/kafka/</link>
+    <description>Recent content in Kafka on Satti&#39;s Blog</description>
+    <generator>Hugo -- 0.148.0</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 10 Jul 2025 17:30:43 +0800</lastBuildDate>
+    <atom:link href="https://Sattiluvcat.github.io/en/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka应用之MovieNight</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/kafka%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Thu, 10 Jul 2025 15:27:43 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/kafka%E5%BA%94%E7%94%A8/</guid>
+      <description>Kafka异步记录用户行为，结合Redis实现推荐电影功能</description>
+    </item>
+  </channel>
+</rss>

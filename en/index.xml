@@ -4,9 +4,9 @@
     <title>Satti&#39;s Blog</title>
     <link>https://Sattiluvcat.github.io/en/</link>
     <description>Recent content on Satti&#39;s Blog</description>
-    <generator>Hugo -- 0.147.9</generator>
+    <generator>Hugo -- 0.148.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 01 Jul 2025 13:55:39 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 10 Jul 2025 17:30:43 +0800</lastBuildDate>
     <atom:link href="https://Sattiluvcat.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>个人电影Top5</title>
@@ -14,6 +14,20 @@
       <pubDate>Wed, 13 Nov 2024 21:42:20 +0800</pubDate>
       <guid>https://Sattiluvcat.github.io/en/posts/hobbies/%E7%94%B5%E5%BD%B1top5/</guid>
       <description>最符合自己庸俗品味的电影Top5与非常浅显的短评 突出的就是just for myself</description>
+    </item>
+    <item>
+      <title>Kafka应用之MovieNight</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/kafka%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Thu, 10 Jul 2025 15:27:43 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/kafka%E5%BA%94%E7%94%A8/</guid>
+      <description>Kafka异步记录用户行为，结合Redis实现推荐电影功能</description>
+    </item>
+    <item>
+      <title>ElasticSearch运用之Movie Night</title>
+      <link>https://Sattiluvcat.github.io/en/posts/java/elasticsearch%E8%BF%90%E7%94%A8/</link>
+      <pubDate>Tue, 01 Jul 2025 17:18:00 +0800</pubDate>
+      <guid>https://Sattiluvcat.github.io/en/posts/java/elasticsearch%E8%BF%90%E7%94%A8/</guid>
+      <description>Movie Night中的一些ES小巧思</description>
     </item>
     <item>
       <title>Spring Security配置之Movie Night</title>
